@@ -1,0 +1,1078 @@
+{
+  "description": "แก้ animemoji",
+  "version": 4,
+  "updated_at": "2026-11-20",
+  "app_config": {
+    "sources": [
+      {
+        "id": "animemoji",
+        "logo": "",
+        "name": "Animemoji",
+        "domain": "anime-moka.com",
+        "categories": [
+          {"id": "cat_9927899069725", "path": "/", "title": "หน้าแรก"},
+          {"id": "cat_3718727998127", "path": "/category/anime-th/", "title": "พากย์ไทย"},
+          {"id": "cat_2686906160052", "path": "/category/category/subth/", "title": "ซับไทย"},
+          {"id": "cat_4046471925124", "path": "/category/china-no1/", "title": "อนิเมะจีน"},
+          {"id": "cat_8068052694913", "path": "/category/category/themovie/", "title": "เดอะมูฟวี่"},
+          {"id": "cat_2606925305448", "path": "/air/จบแล้ว/", "title": "อนิเมะจบแล้ว"},
+          {"id": "cat_9870160029135", "path": "/air/ยังไม่จบ/", "title": "อนิเมะยังไม่จบ"}
+        ]
+      },
+      {
+        "id": "fixmono",
+        "logo": "",
+        "name": "Fixmono",
+        "domain": "flixmono2.com",
+        "categories": [
+          {"id": "cat_1436422493588", "path": "/serie/", "title": "ซีรี่ย์อัพเดท"},
+          {"id": "cat_6912707317315", "path": "/category/ซีรี่ย์จีนพากย์ไทย/", "title": "ซีรี่ย์จีนพากย์ไทย"},
+          {"id": "cat_5096833638035", "path": "/category/ซีรี่ย์จีนซับไทย/", "title": "ซีรี่ย์จีนซับไทย"},
+          {"id": "cat_8410071943871", "path": "/category/ซีรี่ย์เกาหลีพากย์ไทย/", "title": "ซีรี่ย์เกาหลีพากย์ไทย"},
+          {"id": "cat_7180316056242", "path": "/category/ซีรี่ย์เกาหลีซับไทย/", "title": "ซีรี่ย์เกาหลีซับไทย"},
+          {"id": "cat_7029773549828", "path": "/category/ดูซีรี่ย์ฝรั่ง/", "title": "ซีรี่ย์ฝรั่ง"},
+          {"id": "cat_3095922612902", "path": "/category/ดูซีรี่ย์ญี่ปุ่น/", "title": "ซีรี่ย์ญี่ปุ่น"}
+        ]
+      },
+      {
+        "id": "goseries4k",
+        "logo": "",
+        "name": "GoSeries4K",
+        "domain": "goseries4k.com",
+        "categories": [
+          {"id": "cat_7162499478532", "path": "/category/ดู-ซีรี่ย์ออนไลน์/", "title": "ซีรี่ย์ออนไลน์"},
+          {"id": "cat_9283103233772", "path": "/category/ดู-ซีรี่ย์จีน-ออนไลน์/", "title": "ซีรี่ย์จีน"},
+          {"id": "cat_6603842050505", "path": "/category/ดูซีรี่ย์เกาหลี-ออนไลน์/", "title": "ซีรี่ย์เกาหลี"},
+          {"id": "cat_6772386538414", "path": "/cat_category/ดูซีรี่ย์จีนพากย์ไทย/", "title": "ซีรี่ย์จีนพากย์ไทย"},
+          {"id": "cat_6409716640699", "path": "/category/ซีรี่ย์ญี่ปุ่น/", "title": "ซีรี่ย์ญี่ปุ่น"},
+          {"id": "cat_5662551975754", "path": "/category/ซีรี่ย์ฝรั่ง/", "title": "ซีรี่ย์ฝรั่ง"},
+          {"id": "cat_8057993560013", "path": "/cat_category/ซีรี่ย์ไทย-พากย์ไทย/", "title": "ซีรี่ย์ไทย"}
+        ]
+      },
+      {
+        "id": "wowdrama",
+        "logo": "",
+        "name": "WowDrama",
+        "domain": "wow-drama.com",
+        "categories": [
+          {"id": "cat_1134181396219", "path": "/category/the-series-all/", "title": "ซีรี่ย์ออนไลน์"},
+          {"id": "cat_3329415964572", "path": "/category/doo-free-24/", "title": "ซีรี่ย์จีน"},
+          {"id": "cat_4848383367072", "path": "/category/series-korea/", "title": "ซีรี่ย์เกาหลี"},
+          {"id": "cat_5503766460631", "path": "/category/japan-series/", "title": "ซีรี่ย์ญี่ปุ่น"},
+          {"id": "cat_4048148863435", "path": "/category/the-series-th/", "title": "ละครไทย"},
+          {"id": "cat_3338936204689", "path": "/cat_category/cn-2024-th/", "title": "ซีรี่ย์จีนพากย์ไทย"},
+          {"id": "cat_7778702610969", "path": "/cat_category/jp-thai-sound/", "title": "ซีรี่ย์ญี่ปุ่นพากย์ไทย"},
+          {"id": "cat_3856243579564", "path": "/cat_category/korea-thai-sound/", "title": "ซีรี่ย์เกาหลีพากย์ไทย"}
+        ]
+      },
+      {
+        "id": "hdd1112",
+        "logo": "",
+        "name": "1112HDD",
+        "domain": "1112hd.xyz",
+        "categories": [
+          {"id": "cat_1873446278196", "path": "/ซีรี่ย์ใหม่-2026/", "title": "ซีรี่ย์ใหม่ (2026)"},
+          {"id": "cat_9472807381251", "path": "/ซีรี่ย์จีน-พากย์ไทย/", "title": "ซีรี่ย์จีน-พากย์ไทย"},
+          {"id": "cat_7684858491179", "path": "/ซีรี่ย์เกาหลีพากย์ไทย/", "title": "ซีรี่ย์เกาหลีพากย์ไทย"},
+          {"id": "cat_4816756590816", "path": "/ดูซีรี่ย์ฝรั่ง/ซีรี่ย์ฝรั่ง-พากย์ไทย/", "title": "ซีรี่ย์ฝรั่ง-พากย์ไทย"},
+          {"id": "cat_8078346280463", "path": "/ซีรี่ย์ใหม่-2025/", "title": "ซีรี่ย์ใหม่-2025"},
+          {"id": "cat_4772903380718", "path": "/ซีรี่ย์ไทย/", "title": "ซีรี่ย์ไทย"},
+          {"id": "cat_3638456653745", "path": "/ดูซีรี่ย์จีน/", "title": "ดูซีรี่ย์จีน"},
+          {"id": "cat_9789017936809", "path": "/ดูซีรี่ย์เกาหลี/", "title": "ดูซีรี่ย์เกาหลี"}
+        ]
+      },
+      {
+        "id": "seriesday",
+        "logo": "",
+        "name": "SeriesDay",
+        "domain": "www.serieday-z.com",
+        "categories": [
+          {"id": "cat_8053465873256", "path": "/ซีรี่ย์พากย์ไทย/", "title": "ซีรี่ย์พากย์ไทย"},
+          {"id": "cat_4901410356620", "path": "/ซีรี่ย์จีน/", "title": "ซีรี่ย์จีน"},
+          {"id": "cat_4324188088519", "path": "/ซีรี่ย์เกาหลี/", "title": "ซีรี่ย์เกาหลี"},
+          {"id": "cat_7662271003976", "path": "/ซีรี่ย์ฝรั่ง/", "title": "ซีรี่ย์ฝรั่ง"},
+          {"id": "cat_3149649071734", "path": "/ซีรี่ย์ญี่ปุ่น/", "title": "ซีรี่ย์ญี่ปุ่น"},
+          {"id": "cat_8601779146084", "path": "/ซีรี่ย์ไทย/", "title": "ซีรี่ย์ไทย"},
+          {"id": "cat_9848126235729", "path": "/ซีรี่ย์ใหม่-2025/", "title": "ซีรี่ย์ใหม่"},
+          {"id": "cat_3415606484177", "path": "/netflix/", "title": "Netflix"},
+          {"id": "cat_8211635425365", "path": "/iqiyi/", "title": "ซีรี่ย์ IQIYI"},
+          {"id": "cat_9812857770616", "path": "/wetv/", "title": "ซีรี่ย์ WETV"},
+          {"id": "cat_5348164020133", "path": "/youku/", "title": "ซีรี่ย์ YOUKU"},
+          {"id": "cat_4338240696077", "path": "/viu/", "title": "ซีรี่ย์ VIU"},
+          {"id": "cat_3366363022451", "path": "/hbo/", "title": "ซีรี่ย์ HBO"},
+          {"id": "cat_4342902653988", "path": "/apple-tv/", "title": "ซีรี่ย์ APPLE+"},
+          {"id": "cat_5429010360343", "path": "/disney-plus/", "title": "ซีรี่ย์ DISNEY+"},
+          {"id": "cat_1726817010311", "path": "/amazon-prime-video/", "title": "ซีรี่ย์ AmazonPrime"}
+        ]
+      },
+      {
+        "id": "movie123",
+        "logo": "",
+        "name": "123HDD",
+        "domain": "www.123-hdc.com",
+        "categories": [
+          {"id": "cat_1255438103477", "path": "/ซีรี่ย์ใหม่-2026-2", "title": "ซีรี่ย์ใหม่-2026"},
+          {"id": "cat_3613660145641", "path": "/หนังใหม่-2026", "title": "หนังออนไลน์"},
+          {"id": "cat_4319697004285", "path": "/หนังใหม่-2025", "title": "หนังใหม่-2025"},
+          {"id": "cat_1558491116560", "path": "/หนังใหม่-2024", "title": "หนังใหม่-2024"},
+          {"id": "cat_5788607265412", "path": "/หนังใหม่-2023", "title": "หนังใหม่-2023"},
+          {"id": "cat_9390776775802", "path": "/หนังใหม่-2022", "title": "หนังใหม่-2022"},
+          {"id": "cat_4985844710710", "path": "/หนังใหม่-2021", "title": "หนังใหม่-2021"},
+          {"id": "cat_2735327473780", "path": "/หนังใหม่-2020", "title": "หนังใหม่-2020"},
+          {"id": "cat_4693904241508", "path": "/ดูหนังออนไลน์/หนังไทย", "title": "หนังไทย"},
+          {"id": "cat_6234827185576", "path": "/ดูซีรี่ย์ออนไลน์/ซีรี่ย์ใหม่-2025", "title": "ซีรี่ย์ใหม่ 2025"},
+          {"id": "cat_4395352625760", "path": "/ดูซีรี่ย์ออนไลน์/ซีรี่ย์ใหม่-2023", "title": "ซีรี่ย์ใหม่ 2023"},
+          {"id": "cat_8830180811656", "path": "/หนังการ์ตูน/anime-อนิเมะ", "title": "Anime ดูอนิเมะ"},
+          {"id": "cat_7728811824597", "path": "/หนังการ์ตูน/animation", "title": "Animation อนิเมชั่น"}
+        ]
+      },
+      {
+        "id": "movie24hd",
+        "logo": "",
+        "name": "24HD",
+        "domain": "www.24-hdc.com",
+        "categories": [
+          {"id": "cat_6171044715209", "path": "/series/", "title": "ดูซีรีย์"},
+          {"id": "cat_1314859596059", "path": "/", "title": "หนังออนไลน์"},
+          {"id": "cat_8611098134462", "path": "/หนังใหม่-2026/", "title": "หนังใหม่-2026"},
+          {"id": "cat_7468327399272", "path": "/หนังใหม่-2025/", "title": "หนังใหม่-2025"},
+          {"id": "cat_8488012579748", "path": "/หนังใหม่-2024/", "title": "หนังใหม่-2024"},
+          {"id": "cat_5539385363047", "path": "/marvel-universe/", "title": "หนัง Marvel Universe"},
+          {"id": "cat_1131198557564", "path": "/หนังชนโรง/", "title": "หนังชนโรง"},
+          {"id": "cat_5672703734208", "path": "/หนังไทย/", "title": "หนังไทย"},
+          {"id": "cat_5084937629708", "path": "/dc-universe/", "title": "หนัง DC Universe"},
+          {"id": "cat_7990200419913", "path": "/netflix/", "title": "หนัง NETFLIX"}
+        ]
+      },
+      {
+        "id": "hdmedia",
+        "logo": "",
+        "name": "24HD Media",
+        "domain": "www.24hd.today",
+        "categories": [
+          {"id": "cat_1958244105159", "path": "/", "title": "หน้าแรก"},
+          {"id": "cat_6423866944608", "path": "/category/ดูซีรี่ย์/", "title": "ดูซีรี่ย์"},
+          {"id": "cat_6236039195040", "path": "/category/ซีรี่ย์จีน/", "title": "ซีรี่ย์จีน"},
+          {"id": "cat_2298179782546", "path": "/category/ซีรี่ย์เกาหลี/", "title": "ซีรี่ย์เกาหลี"},
+          {"id": "cat_4587482036395", "path": "/category/หนังใหม่2026/", "title": "หนังใหม่ 2026"},
+          {"id": "cat_8586586532635", "path": "/category/หนังใหม่2025/", "title": "หนังใหม่ 2025"},
+          {"id": "cat_9549978135621", "path": "/category/หนังใหม่2024/", "title": "หนังใหม่ 2024"},
+          {"id": "cat_7059953191244", "path": "/category/หนังจีน/", "title": "หนังจีน"},
+          {"id": "cat_3524693412355", "path": "/category/หนังเกาหลี/", "title": "หนังเกาหลี"},
+          {"id": "cat_4550918741765", "path": "/category/thai-movie/", "title": "หนังไทย"},
+          {"id": "cat_7506128635719", "path": "/category/inter-movie/", "title": "หนังต่างประเทศ"},
+          {"id": "cat_8752423112429", "path": "/category/asia-movie/", "title": "หนังเอเชีย"},
+          {"id": "cat_5293331904700", "path": "/category/animation-การ์ตูน/", "title": "การ์ตูน"}
+        ]
+      },
+      {
+        "id": "watchlakorn",
+        "logo": "",
+        "name": "Watch Lakorn",
+        "domain": "www.watchlakorn.org",
+        "categories": [
+          {"id": "cat_2523374036656", "path": "/api.php?action=get_latest&page=1", "title": "อัพเดทล่าสุด"},
+          {"id": "cat_3504611002743", "path": "/api.php?action=get_all&page=1&group=2", "title": "ละคร"},
+          {"id": "cat_5271533342768", "path": "/api.php?action=get_all&page=1&group=15", "title": "ซีรีย์เอเซีย"},
+          {"id": "cat_8195439644477", "path": "/api.php?action=get_all&page=1&group=6", "title": "ซีรี่ย์ต่างประเทศ"},
+          {"id": "cat_1198610085931", "path": "/api.php?action=get_all&page=1&group=7", "title": "ภาพยนต์"},
+          {"id": "cat_4624126226110", "path": "/api.php?action=get_all&page=1&group=16", "title": "BL & GL"},
+          {"id": "cat_8221405602363", "path": "/api.php?action=get_all&page=1&group=3", "title": "ซิทคอม"},
+          {"id": "cat_7906751399013", "path": "/api.php?action=get_all&page=1&group=4", "title": "วาไรตี้"},
+          {"id": "cat_5733586970727", "path": "/api.php?action=get_all&page=1&group=5", "title": "เรียลลิตี้"},
+          {"id": "cat_6590235960131", "path": "/api.php?action=get_all&page=1&group=9", "title": "ละครเก่า"},
+          {"id": "cat_1374829601444", "path": "/api.php?action=get_all&page=1&group=11", "title": "สารคดี"},
+          {"id": "cat_3705285075700", "path": "/api.php?action=get_all&page=1&group=14", "title": "กีฬา"},
+          {"id": "cat_3029454809187", "path": "/api.php?action=get_all&page=1&group=1", "title": "ข่าว"}
+        ]
+      }
+    ],
+    "metadata": {
+      "api_urls": {
+        "get_api": "https://api.24-hdc.com/get.php",
+        "play_api": "https://main.24playerhd.com/newplaylist/",
+        "play_animemoji": "https://moji.abcdxzy.xyz:8443/vod/",
+        "getplay_stream_api": "https://torbo007.com/api/stream/"
+      },
+      "home_paths": {
+        "fixmono": "/serie/",
+        "hdd1112": "/ซีรี่ย์จีน-พากย์ไทย/",
+        "hdmedia": "/",
+        "movie123": "/",
+        "wowdrama": "/category/the-series-all/",
+        "animemoji": "/",
+        "movie24hd": "/",
+        "seriesday": "/ซีรี่ย์จีน/",
+        "goseries4k": "/category/ดู-ซีรี่ย์ออนไลน์/",
+        "watchlakorn": "/api.php?action=get_latest&page=1"
+      },
+      "source_names": {
+        "default": "Fixmono",
+        "fixmono": "Fixmono",
+        "hdd1112": "1112HDD",
+        "hdmedia": "24HD Media",
+        "movie123": "123HDD",
+        "wowdrama": "WowDrama",
+        "animemoji": "Animemoji",
+        "movie24hd": "24HD",
+        "seriesday": "SeriesDay",
+        "goseries4k": "GoSeries4K",
+        "watchlakorn": "Watch Lakorn"
+      }
+    }
+  },
+
+  "parsers": {
+    "FIXMONO": {
+      "source_class": "FixmonoSource",
+      "parser_class": "FixmonoParser",
+      "base_url_template": "https://{base_url}{home_page}",
+      "search_url_template": "https://{base_url}/?s={keyword}",
+      "list": {
+        "item_selector": "article",
+        "link_selector": "a[rel=bookmark]",
+        "title_attr": "title",
+        "url_attr": "href",
+        "image_selector": "img.wp-post-image",
+        "image_attrs": ["data-src", "src"],
+        "subtitle_selector": "span.lang-22-color"
+      },
+      "pagination": {
+        "link_selector": "div.pagination a.page-link:not(.dots)",
+        "active_selector": ["div.pagination li.active a.page-link", "div.pagination .page-item.active .page-link"]
+      },
+      "detail": {
+        "title_selector": "meta[property=og:title]",
+        "title_transform": "strip_chars:[\\[\\].:]|trim",
+        "image_selector": "meta[property=og:image]"
+      },
+      "episodes": {
+        "element_selector": "span.episode[episode-id], .mp-ep-btn[data-id]",
+        "id_attrs": ["episode-id", "data-id"],
+        "fake_url_template": "{referer}?episode-id={episode_id}",
+        "title_template": "ตอนที่ {n}"
+      },
+      "video": {
+        "strategy": "ajax_post_then_fallback",
+        "ajax": {
+          "url_template": "https://{domain}/wp-admin/admin-ajax.php",
+          "method": "POST",
+          "action": "mix_get_player",
+          "body": {"action": "mix_get_player", "post_id": "{episode_id}"},
+          "headers": {
+            "User-Agent": "Mozilla/5.0",
+            "Referer": "{referer}",
+            "X-Requested-With": "XMLHttpRequest"
+          },
+          "response_parsers": [
+            {"type": "torbo_stream", "pattern": "{stream_host}/(?:embed|play)/([A-Za-z0-9]{32})"},
+            {"type": "jwplayer", "patterns": [
+              "sources:\\s*\\[\\s*\\{\\s*file:\\s*\"([^\"]+\\.m3u8)\"",
+              "\"sources\"\\s*:\\s*\\[\\s*\\{\\s*\"file\"\\s*:\\s*\"([^\"]+\\.m3u8)\""
+            ]},
+            {"type": "json", "paths": ["player.primary", "player.data.*[].url"]},
+            {"type": "iframe", "selector": "iframe[src]"}
+          ]
+        },
+        "fallback": [
+          {"type": "direct_url_pattern", "pattern": "(https?:\\/\\/[^\\s\"']+\\.(?:m3u8|mp4|mkv|webm))", "exclude": ["localhost", "127.0.0.1"]},
+          {"type": "iframe_pattern", "pattern": "<iframe[^>]+src=[\"']([^\"']+)[\"']"},
+          {"type": "script_json_pattern", "pattern": "\"(?:file|url|src)\"\\s*:\\s*\"([^\"]+\\.(?:m3u8|mp4))\""},
+          {"type": "script_js_pattern", "pattern": "(?:videoSources|sources|jwplayer\\().*?file.*?\"(https?:\\\\/\\\\/[^\"]+)\""},
+          {"type": "backup_server_selector", "selector": "div.mp-s-sl", "attr": "data-id"}
+        ],
+        "iframe_processing": {
+          "order": ["torbo_stream", "getplay_stream", "original_iframe", "direct_url", "nested_iframe", "script"],
+          "torbo": {"pattern": "{stream_host}/(?:embed|play)/([A-Za-z0-9]{32})"},
+          "getplay": {
+            "patterns": [
+              "https?://(?:getplay-cdn|moddepp)\\.com/(?:embed|play)/([A-Za-z0-9_-]{20,})",
+              "(?:getplay-cdn|moddepp)\\.com/api/stream/([A-Za-z0-9_-]{20,})/index\\.m3u8",
+              "(?:getplay-cdn|moddepp)\\.com/(?:embed|play)/([A-Za-z0-9_-]{20,})"
+            ],
+            "cdn_hosts": {"moddepp": "moddepp.com", "getplay-cdn": "getplay-cdn.com"}
+          },
+          "original_iframe": {
+            "script_marker": "videoSources",
+            "video_server_pattern": "\"videoServer\":\"(\\d+)\"",
+            "video_sources_pattern": "\"videoSources\":\\[\\{\"file\":\"([^\"]+)\"",
+            "host_list_pattern": "\"hostList\":(\\{.*?\\})",
+            "url_transform": {
+              "from": "https:\\\\/\\\\/\\d+\\\\/cdn\\\\/hls\\\\/",
+              "to": "https://{domain}/api/files/",
+              "unescape": true
+            }
+          }
+        }
+      }
+    },
+
+    "ANIMEMOJI": {
+      "source_class": "AnimemojiSource",
+      "parser_class": "AnimemojiParser",
+      "base_url_template": "https://{base_url}{home_page}",
+      "search_url_template": "https://{base_url}/?s={keyword}",
+      "list": {
+        "item_selector": "article.ez-postthumb",
+        "link_selector": "a.ez-pt-link",
+        "title_attr": "title",
+        "url_attr": "href",
+        "image_selector": "img",
+        "image_attrs": ["data-src", "src", "data-srcset"],
+        "subtitle_selector": "span.ez-index-tag",
+        "subtitle_filter": "has_child:i.fa.fa-bolt"
+      },
+      "list_fallback": {
+        "enabled": true,
+        "item_selector": "a[href]:has(img)",
+        "exclude_url_patterns": ["/episode/", "/tag/", "/genre/", "/category/", "/page/"],
+        "title_sources": ["link.title", "img.alt", "link.text"],
+        "episode_regex": "(ตอน(?:ที่)?\\s*\\d+|EP\\.?\\s*\\d+|Episode\\s*\\d+)"
+      },
+      "pagination": {
+        "link_selectors": [".wp-pagenavi a.page", "a.page-numbers", ".pagination a", "nav a[href*=/page/]"],
+        "active_selectors": [".wp-pagenavi span.current", "span.page-numbers.current", ".pagination .current"]
+      },
+      "detail": {
+        "title_selector": "meta[property=og:title]",
+        "title_transform": "regex_replace:[-–]\\s*AnimeMoji.*$|trim",
+        "image_selector": "div.post-thumnail.ez-p-thum.mx-auto img",
+        "image_attrs": ["data-src", "src"]
+      },
+      "episodes": {
+        "element_selector": "div.episode-b a",
+        "url_attr": "href",
+        "title_template": "ตอนที่ {n}",
+        "referer_template": "{base_url}/"
+      },
+      "video": {
+        "strategy": "iframe_to_cdn_playlist",
+        "iframe_selector": "iframe.perfmatters-lazy",
+        "iframe_attrs": ["data-src", "src"],
+        "id_pattern": "embed\\d*/([^/?]+)",
+        "playlist_template": "{play_animemoji}{video_id}/video.mp4/playlist.m3u8"
+      }
+    },
+
+    "GOSERIES4K": {
+      "source_class": "GoSeriesSource",
+      "parser_class": "GoSeries4kParser",
+      "base_url_template": "https://{base_url}{home_page}",
+      "search_url_template": "https://{base_url}/?s={keyword}",
+      "list": {
+        "item_selector": "div.-movie",
+        "link_selector": "div.pic a",
+        "title_selector": "h2.entry-title a",
+        "image_selector": "div.pic img",
+        "image_attrs": ["data-src", "src"],
+        "subtitle_selector": "div.qa-label.qa-bg"
+      },
+      "pagination": {
+        "link_selector": "div.content-pagination a.page-numbers:not(.prev):not(.next)",
+        "active_selector": "div.content-pagination span.page-numbers.current"
+      },
+      "detail": {
+        "title_selector": "meta[property=og:title]",
+        "title_transform": "strip_chars:[\\[\\].:]|trim",
+        "image_selector": "meta[property=og:image]"
+      },
+      "episodes": {
+        "element_selector": "span.episode[episode-id], .mp-ep-btn[data-id]",
+        "id_attrs": ["episode-id", "data-id"],
+        "fake_url_template": "{referer}?episode-id={episode_id}",
+        "title_template": "ตอนที่ {n}"
+      },
+      "video": {
+        "strategy": "ajax_post_then_fallback",
+        "ajax": {
+          "url_template": "https://{domain}/wp-admin/admin-ajax.php",
+          "method": "POST",
+          "action": "miru_custom_player",
+          "body": {"action": "miru_custom_player", "post_id": "{episode_id}"},
+          "headers": {
+            "User-Agent": "Mozilla/5.0",
+            "Referer": "{referer}",
+            "X-Requested-With": "XMLHttpRequest"
+          },
+          "response_parsers": [
+            {"type": "torbo_stream", "pattern": "{stream_host}/(?:embed|play)/([A-Za-z0-9]{32})"},
+            {"type": "jwplayer", "patterns": [
+              "sources:\\s*\\[\\s*\\{\\s*file:\\s*\"([^\"]+\\.m3u8)\"",
+              "\"sources\"\\s*:\\s*\\[\\s*\\{\\s*\"file\"\\s*:\\s*\"([^\"]+\\.m3u8)\""
+            ]},
+            {"type": "json", "paths": ["player.primary", "player.data.*[].url"]},
+            {"type": "iframe", "selector": "iframe[src]"}
+          ]
+        },
+        "fallback": [
+          {"type": "direct_url_pattern", "pattern": "(https?:\\/\\/[^\\s\"']+\\.(?:m3u8|mp4|mkv|webm))", "exclude": ["localhost", "127.0.0.1"]},
+          {"type": "iframe_pattern", "pattern": "<iframe[^>]+src=[\"']([^\"']+)[\"']"},
+          {"type": "script_json_pattern", "pattern": "\"(?:file|url|src)\"\\s*:\\s*\"([^\"]+\\.(?:m3u8|mp4))\""},
+          {"type": "script_js_pattern", "pattern": "(?:videoSources|sources|jwplayer\\().*?file.*?\"(https?:\\\\/\\\\/[^\"]+)\""},
+          {"type": "backup_server_selector", "selector": "div.mp-s-sl", "attr": "data-id"}
+        ],
+        "iframe_processing": {
+          "order": ["torbo_stream", "getplay_stream", "original_iframe", "direct_url", "nested_iframe", "script"],
+          "torbo": {"pattern": "{stream_host}/(?:embed|play)/([A-Za-z0-9]{32})"},
+          "getplay": {
+            "patterns": [
+              "https?://getplay-cdn\\.com/(?:embed|play)/([A-Za-z0-9_-]{20,})",
+              "/api/stream/([A-Za-z0-9_-]{20,})/index\\.m3u8",
+              "getplay-cdn\\.com/(?:embed|play)/([A-Za-z0-9_-]{20,})"
+            ],
+            "cdn_hosts": {"getplay-cdn": "getplay-cdn.com"}
+          },
+          "original_iframe": {
+            "script_marker": "videoSources",
+            "video_server_pattern": "\"videoServer\":\"(\\d+)\"",
+            "video_sources_pattern": "\"videoSources\":\\[\\{\"file\":\"([^\"]+)\"",
+            "host_list_pattern": "\"hostList\":(\\{.*?\\})",
+            "url_transform": {
+              "from": "https:\\\\/\\\\/\\d+\\\\/cdn\\\\/hls\\\\/",
+              "to": "https://{domain}/api/files/",
+              "unescape": true
+            }
+          }
+        }
+      }
+    },
+
+    "MOVIE24HD": {
+      "source_class": "Hd24Source",
+      "parser_class": "Hd24Parser",
+      "base_url_template": "https://{base_url}{home_page}",
+      "search_url_template": "https://{base_url}/search_movie?keyword={keyword}",
+      "list": {
+        "grid_selector": "div.grid-movie",
+        "grid_index": 1,
+        "item_selector": "div.box",
+        "link_selector": "a",
+        "url_attr": "href",
+        "title_selector": "div.p2",
+        "image_selector": "img",
+        "image_attrs": ["data-lazy-src", "src"],
+        "info_selector": "div.p1",
+        "rating_selector": "span.info1",
+        "subtitle_template": "{info} | {rating}"
+      },
+      "pagination": {
+        "container_selector": "nav.navigation.pagination",
+        "link_selector": "a.page-numbers:not(.prev):not(.next)",
+        "active_selector": "span.page-numbers.current"
+      },
+      "detail": {
+        "title_selector": "meta[property=og:title]",
+        "image_selector": "meta[property=og:image]",
+        "blocked_check": {"text_contains": ["Cloudflare", "Access Denied"]}
+      },
+      "episodes": {
+        "main_title_selector": "span[data-server='1000']",
+        "main_title_attr": "data-title",
+        "series_select_selector": "select[name=Sequel_select]",
+        "series_option_value_type": "numeric",
+        "movie_episode_selector": "li.halim-episode span.halim-btn",
+        "skip_server": "1000",
+        "episode_number_attr": "data-episode",
+        "title_template": "{main_title} ตอนที่ {n}"
+      },
+      "video": {
+        "strategy": "ajax_post_to_api",
+        "api_url": "{get_api}",
+        "main_server_selector": "span.halim-btn[data-server='1']",
+        "nonce_pattern": "(?:var\\s+halim_nonce\\s*=\\s*['\"]|\"nonce\"\\s*:\\s*\")([a-f0-9]*)(?:['\"]|\")",
+        "lang_selector": "#Lang_select",
+        "lang_default": "Sound Track",
+        "body": {
+          "action": "halim_ajax_player",
+          "nonce": "{nonce}",
+          "episode": "{episode}",
+          "postid": "{post_id}",
+          "server": "1",
+          "lang": "{lang}"
+        },
+        "headers": {
+          "Referer": "{referer}",
+          "Origin": "https://{base_url}",
+          "X-Requested-With": "XMLHttpRequest",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "response_iframe_selector": "iframe[src]",
+        "m3u8_template": "{play_api}{id}/{id}.m3u8",
+        "id_pattern": "id=([^&]+)"
+      }
+    },
+
+    "HDD1112": {
+      "source_class": "Hdd1112Source",
+      "parser_class": "HDD1112Parser",
+      "base_url_template": "https://{base_url}{home_page}",
+      "search_url_template": "https://{base_url}/?s={keyword}",
+      "list": {
+        "item_selector": "div.post-item",
+        "link_selector": "a",
+        "url_attr": "href",
+        "title_selector": "h3.post-grid-title",
+        "image_selector": "img",
+        "image_attrs": ["src"],
+        "info_selector": "div.flex span"
+      },
+      "pagination": {
+        "container_selector": ".cj-pagination",
+        "prev_selector": "a.prev.page-numbers",
+        "next_selector": "a.next.page-numbers",
+        "item_selector": "ul.page-numbers > li:not(:has(a.prev, a.next))",
+        "link_selector": "a.page-numbers",
+        "active_selector": "span.page-numbers.current"
+      },
+      "detail": {
+        "title_selector": "meta[property=og:title]",
+        "image_selector": "meta[property=og:image]",
+        "default_image": "https://{base_url}/wp-content/themes/cj/assets/images/default-poster.jpg",
+        "allowed_referer_hosts": ["{base_url}", "1112hdss.com", "1112hdc.com", "1112hdg.com"]
+      },
+      "episodes": {
+        "strategy_order": ["cj_player_meta", "ajax_fallback"],
+        "cj_player_meta": {
+          "script_marker": "window.cjPlayerMeta",
+          "encryption": {
+            "type": "rc4",
+            "key_source": "md5:{post_id}_cj_s3cur3_pl@y3r_2026",
+            "encoding": "base64"
+          },
+          "paths": {
+            "series": "series",
+            "videos": "series.videos",
+            "versions": ["th", "sub"],
+            "list": "videos.{ver}.list",
+            "total_ep": "videos.{ver}.total_ep",
+            "ep_key": "ep_{i}",
+            "server_urls": ["server_1.url", "server_2.url"]
+          }
+        },
+        "ajax_fallback": {
+          "url_template": "https://{base_url}/wp-admin/admin-ajax.php",
+          "method": "POST",
+          "body": {"action": "single_get_videos", "post_id": "{post_id}"},
+          "post_id_selectors": [
+            "script#wp-postviews-cache-js-extra[pattern:\"post_id\":\"(\\d+)\"]",
+            "script[pattern:const\\s+postId\\s*=\\s*(\\d+)]"
+          ]
+        }
+      },
+      "video": {
+        "strategy": "direct_iframe_resolve",
+        "torbo_pattern": "(https?://[^/]+)/(?:embed|play)/([A-Za-z0-9]{32})",
+        "torbo_output": "{host}/api/stream/{id}/index.m3u8",
+        "player_hosts": ["online225.com", "oklive-1.xyz", "mycdn-hd.xyz", "ok-nah.com", "play-heyhd.com"],
+        "iframe_selector": "iframe[src]",
+        "script_patterns": [
+          {"type": "jwplayer", "pattern": "sources\\s*:\\s*\\[\\s*\\{\\s*file\\s*:\\s*\"([^\"]+\\.m3u8[^\"]*)\""},
+          {"type": "videoSources", "patterns": [
+            "\"videoServer\":\"(\\d+)\"",
+            "\"videoSources\":\\[\\{\"file\":\"([^\"]+)\"",
+            "\"hostList\":(\\{.*?\\})"
+          ]}
+        ]
+      }
+    },
+
+    "MOVIE123": {
+      "source_class": "Hdd123Source",
+      "parser_class": "Hdd123Parser",
+      "base_url_template": "https://{base_url}{home_page}",
+      "search_url_template": "https://{base_url}{home_page}?s={keyword}",
+      "list": {
+        "item_selector": "article.halim-item, div.halim-item, [class*=halim-item]",
+        "link_selector": "a.halim-thumb",
+        "url_attr": "href",
+        "title_selector": "h2.entry-title",
+        "title_fallback_attr": "title",
+        "image_selector": "img.lazyload",
+        "image_attrs": ["data-src"],
+        "info_selectors": {"sound": "span.soundsub", "status": "span.status"}
+      },
+      "pagination": {
+        "link_selector": "ul.page-numbers a.page-numbers:not(.prev):not(.next)",
+        "active_selector": "span.page-numbers.current"
+      },
+      "detail": {
+        "title_selector": "meta[property=og:title]",
+        "image_selector": "meta[property=og:image]"
+      },
+      "episodes": {
+        "strategy_order": ["table", "dropdown", "standard", "fallback_single"],
+        "table": {
+          "selector": "table#Sequel",
+          "row_selector": "tbody tr",
+          "link_selector": "td a",
+          "episode_number_cell_index": 1
+        },
+        "dropdown": {
+          "selector": "select[name=Sequel_select]",
+          "option_selector": "option",
+          "url_attr": "value"
+        },
+        "standard": {
+          "selector": "div.list-eps-ajax li.halim-episode span.halim-btn",
+          "title_attr": "data-title",
+          "episode_attr": "data-episode"
+        },
+        "episode_regex": "EP[\\s-]*(\\d+)"
+      },
+      "video": {
+        "strategy": "ajax_post",
+        "api_url": "https://{base_url}/api/get.php",
+        "nonce_pattern": "ajax_player.+?\"nonce\":\"(.+?)\"",
+        "active_selector": ["span.halim-btn.active", "span.halim-btn"],
+        "body": {
+          "action": "halim_ajax_player",
+          "nonce": "{nonce}",
+          "episode": "{episode}",
+          "postid": "{post_id}",
+          "server": "{server}"
+        },
+        "headers": {"Referer": "{referer}", "User-Agent": "Mozilla/5.0"},
+        "iframe_selector": "iframe[src]",
+        "m3u8_template": "{play_api}{id}/{id}.m3u8",
+        "id_pattern": "id=([^&]+)"
+      }
+    },
+
+    "HDMEDIA": {
+      "source_class": "HdMediaSource",
+      "parser_class": "HdMediaParser",
+      "base_url_template": "https://{base_url}",
+      "fallback_domain": "www.24hd.media",
+      "search_url_template": "https://{base_url}/?s={keyword_urlencoded}",
+      "list": {
+        "strategy_order": ["rest_api", "html"],
+        "rest_api": {
+          "prefix": "/wp-json/wp/v2/posts?",
+          "per_page": 20,
+          "embed": true,
+          "eligible_url_patterns": ["/", "/category/", "?s="],
+          "title_path": "title.rendered",
+          "link_path": "link",
+          "image_paths": ["_embedded.wp:featuredmedia[0].source_url", "_embedded.wp:featuredmedia[0].media_details.sizes.medium.source_url"],
+          "total_pages_header": "X-WP-TotalPages",
+          "category_lookup_url": "https://{base_url}/wp-json/wp/v2/categories?slug={slug}&_fields=id,name"
+        },
+        "html": {
+          "card_selector": "article.elementor-post",
+          "title_selector": ["h3.elementor-post__title a", "div.elementor-heading-title"],
+          "link_selector": "a[href]",
+          "exclude_link_prefix": "https://{base_url}/category/",
+          "image_strategy": "base64_css_attr",
+          "image_attr": "data-vip24hd-css",
+          "image_css_pattern": "background-image\\s*:\\s*url\\([\"']?([^\"')]+)[\"']?\\)"
+        }
+      },
+      "pagination": {
+        "link_selector": "a.page-numbers",
+        "page_pattern": "/page/(\\d+)/",
+        "base_url_pattern": "/page/\\d+/"
+      },
+      "detail": {
+        "title_selector": "meta[property=og:title]",
+        "image_selector": "meta[property=og:image]",
+        "fallback_title": "24HD Media"
+      },
+      "episodes": {
+        "selector": "button.swicth-ep.mov_source",
+        "link_attr": "data-link",
+        "episode_regex": "(?:EP|ตอน)[.\\s]*(\\d+)",
+        "fallback_single": {
+          "iframe_selector": "iframe[name=box-player]",
+          "iframe_attrs": ["data-src", "src"],
+          "link_selector": "a.player-1-btn-link",
+          "link_attr": "href"
+        }
+      },
+      "video": {
+        "strategy": "embed_to_playlist",
+        "id_pattern": "/(?:embed|e)/([A-Za-z0-9_-]+)",
+        "playlist_host": "vdohls.com",
+        "playlist_template": "https://{playlist_host}/{id}/playlist.m3u8"
+      }
+    },
+
+    "SERIESDAY": {
+      "source_class": "SeriesDaySource",
+      "parser_class": "SeriesDayParser",
+      "base_url_template": "https://{base_url}{home_page}",
+      "search_url_template": "https://{base_url}/search_movie/?keyword={keyword}",
+      "list": {
+        "item_selector": "div.grid-movie > div.box",
+        "link_selector": "a",
+        "url_attr": "href",
+        "title_selector": ".p-box .p2",
+        "image_selector": ".box-img img",
+        "image_attrs": ["data-lazy-src"],
+        "info_selector": ".p-box .p1"
+      },
+      "pagination": {
+        "link_selector": ".pagination a.page-numbers:not(.next):not(.prev)",
+        "prev_selector": ".pagination a.prev.page-numbers",
+        "next_selector": ".pagination a.next.page-numbers",
+        "skip_labels": ["<<", ">>", "..."]
+      },
+      "detail": {
+        "title_selector": "meta[property=og:title]",
+        "image_selector": "img.attachment-full.size-full.wp-post-image",
+        "image_attrs": ["data-lazy-src"]
+      },
+      "episodes": {
+        "selector": "select[name=Sequel_select] option",
+        "url_attr": "value",
+        "url_template": "https://{base_url}{value}",
+        "title_attr": "text"
+      },
+      "video": {
+        "strategy": "ajax_post",
+        "api_url": "https://{base_url}/api/get.php",
+        "lang_selector": "select#Lang_select",
+        "lang_priority": ["Thai", "Sound Track"],
+        "server_selector": "span.halim-btn.halim-btn-2.active.halim-info-2-1.box-shadow",
+        "attrs": {"post_id": "data-post-id", "server": "data-server", "type": "data-type"},
+        "server_fallback": "3",
+        "body": {
+          "action": "halim_ajax_player",
+          "nonce": "{type}",
+          "episode": "{episode}",
+          "postid": "{post_id}",
+          "lang": "{lang}",
+          "server": "{server}"
+        },
+        "headers": {"Referer": "{referer}", "User-Agent": "Mozilla/5.0"},
+        "iframe_selector": "iframe[src]",
+        "m3u8_template": "{play_api}{id}/{id}.m3u8",
+        "id_pattern": "id=([^&]+)"
+      }
+    },
+
+    "WATCHLAKORN": {
+      "source_class": "WatchLakornSource",
+      "parser_class": "WatchLakornParser",
+      "base_url_template": "https://{base_url}",
+      "fallback_domain": "www.watchlakorn.org",
+      "search_url_template": "https://{base_url}/api.php?action=search&q={keyword_urlencoded}",
+      "list": {
+        "strategy_order": ["json_api", "html"],
+        "json_api": {
+          "trigger": "url_contains:api.php?",
+          "action_param": "action",
+          "default_action": "get_all",
+          "items_path": "items",
+          "title_paths": ["title", "series_name"],
+          "image_path": "image",
+          "category_id_path": "category_id",
+          "video_id_path": "id",
+          "series_detail_url_template": "https://{base_url}/api.php?action=get_series_detail&id={category_id}&category_id={category_id}&page=1",
+          "player_url_template": "https://{base_url}/api.php?action=get_player&id={video_id}",
+          "latest_episode_paths": ["total_episodes", "episode_display"],
+          "latest_episode_template": "ตอน {n}",
+          "total_pages_path": "total_pages",
+          "image_normalize": {"prefix_double_slash": "https:"}
+        },
+        "html": {
+          "item_selectors": ["div.grids", "div[id^=vid_view_]", "div[id^=vid_wrap_]"],
+          "thumb_link_selector": "div.view_thumb a, div.vid_thumb a",
+          "url_attr": "abs:href",
+          "title_link_selector": "div.view_info_wrap h2.title a, div.vid_info_wrap h2.title a",
+          "title_inner_selector": "span.title",
+          "image_selector": "img",
+          "image_attrs": ["data-src", "src"]
+        }
+      },
+      "pagination": {
+        "load_more_id": "loadmore",
+        "onclick_patterns": {
+          "next_st": "&st=(\\d+)",
+          "name": "loadshows\\(\\s*'([^']+)'",
+          "group": "loadshows\\(\\s*'[^']+'\\s*,\\s*'([^']+)'"
+        },
+        "page_size": 25,
+        "url_st_param": "st=(\\d+)",
+        "ajax_url_template": "https://{base_url}/ajax.php?module=loadshows&name={name}&group={group}&category=&searchby=&st={st}"
+      },
+      "detail": {
+        "route_detection": [
+          {"url_contains": "api.php?action=get_series_detail", "handler": "parse_series_detail_json"},
+          {"url_contains": "api.php?action=get_player", "handler": "parse_single_video_json"},
+          {"url_pattern": "-video-(\\d+)", "handler": "fetch_get_player_then_parse"},
+          {"default": "parse_old_html_detail"}
+        ],
+        "series_detail_json": {
+          "series_path": "series",
+          "title_path": "series.title",
+          "image_path": "series.image",
+          "episodes_path": "episodes",
+          "episode_id_path": "id",
+          "episode_number_path": "episode",
+          "episode_title_path": "episode_display",
+          "episode_image_path": "image",
+          "episode_title_fallback": "ตอนที่ {n}",
+          "episode_info_url_template": "https://{base_url}/api.php?action=get_player&id={video_id}"
+        },
+        "single_video_json": {
+          "video_path": "video",
+          "title_path": "video.title",
+          "image_path": "video.image",
+          "stream_paths": ["stream_url", "playlist_url", "playlist"],
+          "episodes_path": "episodes",
+          "episode_id_path": "id",
+          "episode_title_path": "episode",
+          "episode_number_path": "episode",
+          "episode_image_path": "image",
+          "episode_title_fallback": "ตอนที่ {n}",
+          "episode_info_url_template": "https://{base_url}/api.php?action=get_player&id={video_id}"
+        },
+        "old_html": {
+          "title_selector": "meta[property=og:title]",
+          "image_selector": "meta[property=og:image]",
+          "legacy_episode_flow": {
+            "cm_pattern": "-cm-(\\d+)",
+            "ajax_url_template": "https://{domain}/ajax.php?module=movie_select&name=Catmovie&file={cm_id}",
+            "st_pattern": "st=(\\d+)",
+            "grid_selector": "div.grid_view.list_view",
+            "thumb_link_selector": "div.vid_thumb a",
+            "title_span_selector": "div.vid_info_wrap h2.title a span.title",
+            "title_link_selector": "div.vid_info_wrap h2.title a",
+            "image_selector": "img"
+          }
+        }
+      },
+      "video": {
+        "strategy": "resolve_stream_with_health_check",
+        "stream_resolution_order": [
+          {"if": "stream_contains:content_jw6.php|content_jw", "handler": "fetch_jw_playlist"},
+          {"if": "stream_starts://", "handler": "prefix_https"},
+          {"if": "stream_starts:/", "handler": "prepend_base_url"},
+          {"default": "return_stream_as_is"}
+        ],
+        "jw_playlist": {
+          "url_template": "https://{base_url}/{stream} (if not absolute)",
+          "parse_as": "json_array",
+          "file_path": "[0].file",
+          "normalize": ["prefix_double_slash:https:", "prepend_base_url_if_relative"]
+        },
+        "health_check": {
+          "enabled": true,
+          "only_for_m3u8": true,
+          "fetch_master": true,
+          "master_variant_marker": "#EXT-X-STREAM-INF",
+          "media_segment_marker": "#EXTINF",
+          "probe": {
+            "method": "GET",
+            "range_header": "bytes=0-0",
+            "headers": {"User-Agent": "{ua}", "Referer": "{home_referer}"}
+          },
+          "rules": {
+            "media_without_extinf": "throw:dead_episode",
+            "first_segment_4xx": "throw:dead_episode",
+            "all_variants_fail_with_4xx": "throw:dead_episode"
+          },
+          "error_messages": {
+            "dead_episode": "ตอนนี้ถูกลบออกจากระบบแล้ว กรุณาเลือกตอนอื่น"
+          }
+        },
+        "legacy_html": {
+          "meta_content_url_selector": "meta[itemprop=contentUrl]",
+          "meta_file_selector": "meta[name=file]",
+          "hd_replace": {"from": "c2Q=/master.m3u8", "to": "aGQ=/master.m3u8"},
+          "head_probe_accept_codes": [200, 405],
+          "script_patterns": [
+            {"pattern": "\"file\"\\s*:\\s*\"([^\"]+\\.m3u8)\""},
+            {"pattern": "sources:\\s*\\[\\s*\\{\\s*file:\\s*\"([^\"]+\\.m3u8)\""},
+            {"pattern": "(https?://[^\\s\"']+\\.m3u8[^\\s\"']*)"}
+          ],
+          "error_message": "ไม่พบลิงก์วิดีโอในหน้า"
+        }
+      }
+    },
+
+    "WOWDRAMA": {
+      "source_class": "WowDramaSource",
+      "parser_class": "WowDramaParser",
+      "base_url_template": "https://{base_url}{home_page}",
+      "search_url_template": "https://{base_url}/?s={keyword}",
+      "list": {
+        "item_selectors": ["div.-movie", "article.movie", ".movies article", ".item-movies"],
+        "link_selector": "div.pic a, .poster a, a[href]",
+        "url_attr": "abs:href",
+        "url_fallback_attr": "href",
+        "title_selectors": ["h2.entry-title a", ".title a", "h2 a", "h3 a"],
+        "title_fallbacks": ["img.alt", "link.title"],
+        "image_selector": "div.pic img, .poster img, img",
+        "image_attrs": [
+          "data-wpfc-original-src", "data-src", "data-lazy-src", "data-original",
+          "data-original-src", "data-src-retina", "data-cfsrc", "data-lazy", "src",
+          "data-wpfc-original-srcset", "data-srcset", "data-lazy-srcset", "srcset"
+        ],
+        "poster_fallback": {
+          "selector": "[data-bg], [data-background], [style*=background-image]",
+          "attrs": ["data-bg", "data-background"],
+          "style_pattern": "url\\(['\"]?([^)'\"]+)"
+        },
+        "subtitle_selector": "div.imdb, .imdb, .quality"
+      },
+      "pagination": {
+        "container_selector": "div.content-pagination",
+        "prev_selector": "a.prev.page-numbers",
+        "next_selector": "a.next.page-numbers",
+        "link_selector": "a.page-numbers:not(.prev):not(.next)"
+      },
+      "detail": {
+        "title_selector": "meta[property=og:title]",
+        "title_transform": "strip_chars:[\\[\\].:]|trim",
+        "image_selector": "meta[property=og:image]",
+        "nonce_extraction": {
+          "script_iterator": "script",
+          "pattern": "miruNonce\\s*=\\s*\"([^\"]+)\"",
+          "stored_as": "miruNonce"
+        }
+      },
+      "episodes": {
+        "element_selector": "div.miru-ep-btn[data-ep-id], span.episode[episode-id], .mp-ep-btn[data-id]",
+        "id_attrs_priority": ["data-ep-id", "episode-id", "data-id"],
+        "title_attrs": ["title"],
+        "title_inner_selector": ".miru-ep-title",
+        "title_template": "ตอนที่ {n}",
+        "fake_url_template": "{referer}?episode-id={episode_id}"
+      },
+      "video": {
+        "strategy": "ajax_post_multi_server",
+        "ajax": {
+          "url_template": "https://{domain}/wp-admin/admin-ajax.php",
+          "method": "POST",
+          "action": "miru_get_api_player_url",
+          "server_iterations": [0, 1],
+          "body": {
+            "action": "miru_get_api_player_url",
+            "ep_id": "{episode_id}",
+            "server_idx": "{server_idx}",
+            "nonce": "{nonce}"
+          },
+          "headers": {
+            "User-Agent": "Mozilla/5.0",
+            "Referer": "{referer}",
+            "Origin": "https://{domain}",
+            "X-Requested-With": "XMLHttpRequest"
+          },
+          "nonce_source": ["epDoc_script", "cached_miruNonce"],
+          "response_parsers": [
+            {"type": "torbo_stream", "pattern": "{stream_host}/(?:embed|play)/([A-Za-z0-9]{32})"},
+            {"type": "jwplayer", "patterns": [
+              "sources:\\s*\\[\\s*\\{\\s*file:\\s*\"([^\"]+\\.m3u8)\"",
+              "\"sources\"\\s*:\\s*\\[\\s*\\{\\s*\"file\"\\s*:\\s*\"([^\"]+\\.m3u8)\""
+            ]},
+            {"type": "json_success_player_primary", "path": "player.primary"},
+            {"type": "json_success_data_url", "path": "data.url"},
+            {"type": "json_player_data_servers", "path": "player.data.*[].url"},
+            {"type": "iframe", "selector": "iframe[src]"}
+          ],
+          "success_false_capture": {
+            "message_paths": ["data.message"],
+            "fallback_message": "API success=false"
+          }
+        },
+        "fallback": [
+          {"type": "direct_url_pattern", "pattern": "(https?:\\/\\/[^\\s\"']+\\.(?:m3u8|mp4|mkv|webm))", "exclude": ["localhost", "127.0.0.1"]},
+          {"type": "iframe_pattern", "pattern": "<iframe[^>]+src=[\"']([^\"']+)[\"']"},
+          {"type": "script_json_pattern", "pattern": "\"(?:file|url|src)\"\\s*:\\s*\"([^\"]+\\.(?:m3u8|mp4))\""},
+          {"type": "script_js_pattern", "pattern": "(?:videoSources|sources|jwplayer\\().*?file.*?\"(https?:\\\\/\\\\/[^\"]+)\""},
+          {"type": "backup_server_selector", "selector": "div.mp-s-sl", "attr": "data-id"}
+        ],
+        "iframe_processing": {
+          "order": ["torbo_stream", "getplay_stream", "original_iframe", "direct_url", "nested_iframe", "script"],
+          "torbo": {
+            "pattern": "{stream_host}/(?:embed|play)/([A-Za-z0-9]{32})",
+            "resolver": "GetplayStreamResolver.resolve"
+          },
+          "getplay": {
+            "cdn_hosts": {"ok-hd": "ok-hd.com", "getplay-cdn": "getplay-cdn.com"},
+            "patterns": [
+              "https?://(?:getplay-cdn|ok-hd)\\.com/(?:embed|play)/([A-Za-z0-9_-]{20,})",
+              "(?:getplay-cdn|ok-hd)\\.com/api/stream/([A-Za-z0-9_-]{20,})/index\\.m3u8",
+              "(?:getplay-cdn|ok-hd)\\.com/(?:embed|play)/([A-Za-z0-9_-]{20,})"
+            ],
+            "parent_default": "wow-drama.com"
+          },
+          "original_iframe": {
+            "script_marker": "videoSources",
+            "video_server_pattern": "\"videoServer\":\"(\\d+)\"",
+            "video_sources_pattern": "\"videoSources\":\\[\\{\"file\":\"([^\"]+)\"",
+            "host_list_pattern": "\"hostList\":(\\{.*?\\})",
+            "url_transform": {
+              "from": "https:\\\\/\\\\/\\d+\\\\/cdn\\\\/hls\\\\/",
+              "to": "https://{domain}/api/files/",
+              "unescape": true
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "shared": {
+    "domain_config": {
+      "base_url": "{DomainConfig.BaseUrl.*}",
+      "home_page": "{DomainConfig.HomePage.*}",
+      "source_name": "{DomainConfig.SourceName.*}",
+      "play_api": "{DomainConfig.ApiUrl.PLAY_API}",
+      "get_api": "{DomainConfig.ApiUrl.GET_API}",
+      "play_animemoji": "{DomainConfig.ApiUrl.PLAY_ANIMEMOJI}",
+      "getplay_stream_api": "{DomainConfig.ApiUrl.GETPLAY_STREAM_API}"
+    },
+    "http": {
+      "client_factory": "OkHttpClientFactory.getClientWithDoH",
+      "default_ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "challenge_ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "watchlakorn_ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "resolvers": {
+      "getplay_stream": "GetplayStreamResolver.resolve(streamBase, id, parent, client)",
+      "torbo_stream_parent": "domain or stream_host",
+      "getplay_stream_parent_defaults": {
+        "Fixmono": "flixmono.com",
+        "WowDrama": "wow-drama.com"
+      }
+    },
+    "models": {
+      "anime": "Anime(title, url, image, episodes)",
+      "episode": "Episode(title, url, imageUrl, videoUrl, referer, number)",
+      "anime_item": "AnimeItem(title, url, imageUrl, subtitleText[, latestEpisode])",
+      "page_item": "PageItem(number, url, isActive)",
+      "host_list": "HostListModel.hostList: Map<String, List<String>>"
+    },
+    "interface": {
+      "AnimeSource": ["getSourceName", "getBaseUrl", "getSearchUrl", "fetchAnimeList", "cleanup"],
+      "AnimeParser": ["parseAnimeDetail", "parseEpisodes", "parseVideoUrl"],
+      "AnimeLoadCallback": ["onSuccess(animeItems, pageItems)", "onFailure(errorMessage)"]
+    }
+  },
+
+  "remote_update": {
+    "enabled": true,
+    "transport": "https_get_json",
+    "cache_ttl_seconds": 3600,
+    "fallback_to_bundled": true,
+    "field_overrides": [
+      "app_config.sources",
+      "app_config.metadata",
+      "parsers.{NAME}.list.*",
+      "parsers.{NAME}.pagination.*",
+      "parsers.{NAME}.detail.*",
+      "parsers.{NAME}.episodes.*",
+      "parsers.{NAME}.video.*",
+      "parsers.{NAME}.base_url_template",
+      "parsers.{NAME}.search_url_template",
+      "shared.resolvers.*"
+    ],
+    "safety": {
+      "validate_json_schema": true,
+      "require_version_monotonic": true,
+      "reject_empty_required_fields": true
+    }
+  }
+}
