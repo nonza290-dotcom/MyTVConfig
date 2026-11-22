@@ -2,7 +2,7 @@
   "sources": [
     {
       "id": "moviemaster8k",
-      "name": "MovieMaster8K (ทดลอง)",
+      "name": "MovieMaster8K",
       "domain": "moviemaster8k.com",
       "enabled": true,
       "search": "https://{domain}/?s={keyword}",
@@ -12,6 +12,11 @@
           "path": "/category/new-movie/",
           "title": "หนังใหม่"
         }
+                        {
+          "id": "mm8k_new_movies",
+          "path": "/category/action/",
+          "title": "แอคชั่น"
+                        }
       ],
       "list": {
         "item": ".mm8k-card",
