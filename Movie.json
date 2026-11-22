@@ -11,12 +11,12 @@
           "id": "mm8k_new_movies",
           "path": "/category/new-movie/",
           "title": "หนังใหม่"
-        }
-                        {
-          "id": "mm8k_new_movies1",
+        },
+                {
+          "id": "mm8k_action_movies",
           "path": "/category/action/",
           "title": "แอคชั่น"
-                        }
+                }
       ],
       "list": {
         "item": ".mm8k-card",
