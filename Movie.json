@@ -1,0 +1,74 @@
+{
+  "sources": [
+    {
+      "id": "moviemaster8k",
+      "name": "MovieMaster8K (ทดลอง)",
+      "domain": "moviemaster8k.com",
+      "enabled": true,
+      "search": "https://{domain}/?s={keyword}",
+      "categories": [
+        {
+          "id": "mm8k_new_movies",
+          "path": "/category/new-movie/",
+          "title": "หนังใหม่"
+        }
+      ],
+      "list": {
+        "item": ".mm8k-card",
+        "title": ".mm8k-card-title@text",
+        "image": ".mm8k-card-poster img@src|data-src|data-lazy-src",
+        "link": "@href",
+        "subtitle": ".mm8k-card-year@text",
+        "latest_episode": ".mm8k-card-audio@text"
+      },
+      "pagination": {
+        "link": "a.page-numbers, a[rel=next]",
+        "active": ".page-numbers.current"
+      },
+      "detail": {
+        "title": [
+          "meta[property=og:title]@content",
+          ".mm8k-card-title@text",
+          "h1@text",
+          "title@text"
+        ],
+        "image": [
+          ".mm8k-poster img@src",
+          "meta[property=og:image]@content"
+        ]
+      },
+      "episodes": {
+        "single": {
+          "title": "เล่นวิดีโอ",
+          "url": "{page_url}"
+        }
+      },
+      "video": {
+        "steps": [
+          {
+            "do": "regex",
+            "from": "page_html",
+            "pattern": "<iframe[^>]+src=[\"'](https?://player77hdfree\\.xyz/embed/[^\"']+)[\"']",
+            "as": "player_url"
+          },
+          {
+            "do": "fetch",
+            "url": "{player_url}",
+            "referer": "{page_url}",
+            "as": "player_html"
+          },
+          {
+            "do": "regex",
+            "from": "player_html",
+            "pattern": "\\\"vdoId\\\"\\s*:\\s*\\\"([A-Za-z0-9_-]+)\\\"",
+            "as": "vdo_id"
+          },
+          {
+            "do": "return",
+            "value": "https://vdohls.com/{vdo_id}/playlist.m3u8"
+          }
+        ]
+      }
+    }
+  ]
+}
