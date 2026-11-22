@@ -7,6 +7,11 @@
       "enabled": true,
       "search": "https://{domain}/?s={keyword}",
       "categories": [
+                                {
+          "id": "mm8k_fist_movies",
+          "path": "/",
+          "title": "หน้าแรก"
+        },
         {
           "id": "mm8k_new_movies",
           "path": "/category/new-movie/",
