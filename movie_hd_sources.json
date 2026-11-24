@@ -1,116 +1,13 @@
 {
   "version": 1,
-  "description": "MOVIE HD website catalog: Animemoji, Fixmono, GoSeries4K, WowDrama.",
+  "description": "MOVIE HD online source - Fixmono. Migrated from legacy Fixmono parser settings.",
   "stream_rules": [],
   "sources": [
     {
-      "id": "animemoji",
-      "name": "Animemoji",
-      "domain": "anime-moka.com",
-      "scheme": "https",
-      "categories": [
-        {
-          "id": "cat_9927899069725",
-          "path": "/",
-          "title": "หน้าแรก"
-        },
-        {
-          "id": "cat_3718727998127",
-          "path": "/category/anime-th/",
-          "title": "พากย์ไทย"
-        },
-        {
-          "id": "cat_2686906160052",
-          "path": "/category/category/subth/",
-          "title": "ซับไทย"
-        },
-        {
-          "id": "cat_4046471925124",
-          "path": "/category/china-no1/",
-          "title": "อนิเมะจีน"
-        },
-        {
-          "id": "cat_8068052694913",
-          "path": "/category/category/themovie/",
-          "title": "เดอะมูฟวี่"
-        },
-        {
-          "id": "cat_2606925305448",
-          "path": "/air/จบแล้ว/",
-          "title": "อนิเมะจบแล้ว"
-        },
-        {
-          "id": "cat_9870160029135",
-          "path": "/air/ยังไม่จบ/",
-          "title": "อนิเมะยังไม่จบ"
-        }
-      ],
-      "search": "{base}/?s={keyword}",
-      "list": {
-        "item": "article.ez-postthumb",
-        "link": "a.ez-pt-link@href",
-        "title": "a.ez-pt-link@title|text",
-        "image": "img@data-src|src|data-srcset",
-        "subtitle": "span.ez-index-tag@text",
-        "exclude_url": [
-          "/episode/",
-          "/tag/",
-          "/genre/",
-          "/category/",
-          "/page/"
-        ]
-      },
-      "pagination": {
-        "link": ".wp-pagenavi a.page, a.page-numbers, .pagination a, nav a[href*=/page/]",
-        "active": ".wp-pagenavi span.current, span.page-numbers.current, .pagination .current"
-      },
-      "detail": {
-        "title": "meta[property=og:title]@content",
-        "title_strip": [
-          "[-–]\\s*AnimeMoji.*$"
-        ],
-        "image": "div.post-thumnail.ez-p-thum.mx-auto img@data-src|src"
-      },
-      "episodes": {
-        "item": "div.episode-b a",
-        "url": "@href",
-        "title": "@text",
-        "number_regex": "(?:ตอน(?:ที่)?|EP\\.?|Episode)\\s*(\\d+)",
-        "title_template": "ตอนที่ {n}",
-        "order": "asc"
-      },
-      "video": {
-        "steps": [
-          {
-            "do": "css",
-            "from": "page_html",
-            "sel": "iframe.perfmatters-lazy@data-src|src",
-            "as": "iframe_url"
-          },
-          {
-            "do": "regex",
-            "from": "iframe_url",
-            "pattern": "embed\\d*/([^/?]+)",
-            "group": 1,
-            "as": "video_id"
-          },
-          {
-            "do": "require",
-            "var": "video_id",
-            "message": "ไม่พบรหัสวิดีโอจาก iframe ของ Animemoji"
-          },
-          {
-            "do": "return",
-            "value": "https://moji.abcdxzy.xyz:8443/vod/{video_id}/video.mp4/playlist.m3u8"
-          }
-        ]
-      }
-    },
-    {
       "id": "fixmono",
-      "logo": "",
       "name": "Fixmono",
       "domain": "flixmono2.com",
+      "scheme": "https",
       "categories": [
         {
           "id": "cat_1436422493588",
@@ -148,140 +45,80 @@
           "title": "ซีรี่ย์ญี่ปุ่น"
         }
       ],
-      "home_page": "/serie/",
-      "search": "https://{domain}/?s={keyword}",
+      "search": "{base}/?s={keyword}",
       "list": {
         "item": "article",
         "link": "a[rel=bookmark]@href",
-        "title": "a[rel=bookmark]@title",
+        "title": "a[rel=bookmark]@title|text",
         "image": "img.wp-post-image@data-src|src",
         "subtitle": "span.lang-22-color@text"
       },
       "pagination": {
         "link": "div.pagination a.page-link:not(.dots)",
-        "active": [
-          "div.pagination li.active a.page-link",
-          "div.pagination .page-item.active .page-link"
-        ]
+        "active": "div.pagination li.active a.page-link, div.pagination .page-item.active .page-link"
       },
       "detail": {
         "title": "meta[property=og:title]@content",
+        "title_strip": [
+          "[\\[\\].:]"
+        ],
         "image": "meta[property=og:image]@content"
       },
       "episodes": {
         "item": "span.episode[episode-id], .mp-ep-btn[data-id]",
         "id": "@episode-id|data-id",
+        "url": "{referer}?episode-id={id}",
         "title": "@text",
-        "url_template": "{page_url}?episode-id={id}",
-        "number_regex": "(\\d+)",
-        "order": "desc"
-      },
-      "scheme": "https"
-    },
-    {
-      "id": "goseries4k",
-      "logo": "",
-      "name": "GoSeries4K",
-      "domain": "goseries4k.com",
-      "categories": [
-        {
-          "id": "cat_7162499478532",
-          "path": "/category/ดู-ซีรี่ย์ออนไลน์/",
-          "title": "ซีรี่ย์ออนไลน์"
-        },
-        {
-          "id": "cat_9283103233772",
-          "path": "/category/ดู-ซีรี่ย์จีน-ออนไลน์/",
-          "title": "ซีรี่ย์จีน"
-        },
-        {
-          "id": "cat_6603842050505",
-          "path": "/category/ดูซีรี่ย์เกาหลี-ออนไลน์/",
-          "title": "ซีรี่ย์เกาหลี"
-        },
-        {
-          "id": "cat_6772386538414",
-          "path": "/cat_category/ดูซีรี่ย์จีนพากย์ไทย/",
-          "title": "ซีรี่ย์จีนพากย์ไทย"
-        },
-        {
-          "id": "cat_6409716640699",
-          "path": "/category/ซีรี่ย์ญี่ปุ่น/",
-          "title": "ซีรี่ย์ญี่ปุ่น"
-        },
-        {
-          "id": "cat_5662551975754",
-          "path": "/category/ซีรี่ย์ฝรั่ง/",
-          "title": "ซีรี่ย์ฝรั่ง"
-        },
-        {
-          "id": "cat_8057993560013",
-          "path": "/cat_category/ซีรี่ย์ไทย-พากย์ไทย/",
-          "title": "ซีรี่ย์ไทย"
-        }
-      ],
-      "home_page": "/",
-      "search": "{base}/?s={keyword}",
-      "list": {
-        "item": "div.-movie, article.movie, .movies article, .item-movies",
-        "link": [
-          "div.pic a@href",
-          ".poster a@href",
-          "a[href]@href"
-        ],
-        "title": [
-          "h2.entry-title a@text",
-          ".title a@text",
-          "h2 a@text",
-          "a@title",
-          "img@alt"
-        ],
-        "image": [
-          "div.pic img@data-src|data-lazy-src|data-original|src",
-          ".poster img@data-src|data-lazy-src|data-original|src",
-          "img@data-src|data-lazy-src|data-original|src"
-        ],
-        "subtitle": [
-          "div.qa-label.qa-bg@text",
-          ".quality@text",
-          ".imdb@text"
-        ]
-      },
-      "pagination": {
-        "link": "div.content-pagination a.page-numbers, .pagination a.page-numbers, a.page-numbers",
-        "active": "div.content-pagination span.page-numbers.current, .pagination .current, span.page-numbers.current"
-      },
-      "detail": {
-        "title": [
-          "meta[property=og:title]@content",
-          "h1@text",
-          "title@text"
-        ],
-        "title_strip": [
-          "[-–]\\s*Goseries4k.*$"
-        ],
-        "image": [
-          "meta[property=og:image]@content",
-          "img.wp-post-image@src"
-        ]
-      },
-      "episodes": {
-        "item": "span.episode[episode-id], .mp-ep-btn[data-id], .miru-ep-btn[data-ep-id], [data-ep-id]",
-        "id": [
-          "@episode-id",
-          "@data-id",
-          "@data-ep-id"
-        ],
-        "title": [
-          "@title",
-          "@text"
-        ],
-        "url_template": "{page_url}?episode-id={id}",
-        "number_regex": "(?:EP\\.?\\s*|ตอน(?:ที่)?\\s*)(\\d+)",
         "title_template": "ตอนที่ {n}",
         "order": "asc"
       },
-      "scheme": "https"
+      "video": {
+        "steps": [
+          {
+            "do": "http_post",
+            "url": "{base}/wp-admin/admin-ajax.php",
+            "headers": {
+              "Referer": "{referer}",
+              "X-Requested-With": "XMLHttpRequest"
+            },
+            "body": {
+              "action": "mix_get_player",
+              "post_id": "{episode_id}"
+            },
+            "as": "ajax_res"
+          },
+          {
+            "do": "css",
+            "from": "ajax_res",
+            "sel": "iframe@src",
+            "as": "iframe_url"
+          },
+          {
+            "do": "regex",
+            "from": "ajax_res",
+            "pattern": "(https?://[^\\s\"']+\\.(?:m3u8|mp4|mkv|webm))",
+            "group": 1,
+            "as": "direct_url"
+          },
+          {
+            "do": "first_non_empty",
+            "vars": [
+              "direct_url",
+              "iframe_url"
+            ],
+            "as": "target_url"
+          },
+          {
+            "do": "require",
+            "var": "target_url",
+            "message": "ไม่พบลิงก์เล่นวิดีโอจาก Fixmono"
+          },
+          {
+            "do": "return",
+            "value": "{target_url}"
+          }
+        ]
+      }
     }
   ]
 }
