@@ -47,12 +47,16 @@
           "meta[property=og:image]@content"
         ]
       },
-      "episodes": {
-        "single": {
-          "title": "เล่นวิดีโอ",
-          "url": "{page_url}"
-        }
-      },
+    
+
+"episodes": {
+  "item": ".mm8k-player-wrap.mm8k-ep-player",
+  "title_template": "EP.{index}",
+  "url": "iframe@src",
+  "single": false
+}
+        
+      ,
       "video": {
         "steps": [
           {
