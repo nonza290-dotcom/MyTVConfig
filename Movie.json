@@ -1,6 +1,110 @@
 {
   "version": 1,
-  "description": "MOVIE HD website catalog.",
+  "description": "MOVIE HD online source - Animemoji only. Migrated from the user's legacy Animemoji parser settings.",
   "stream_rules": [],
-  "sources": []
+  "sources": [
+    {
+      "id": "animemoji",
+      "name": "Animemoji",
+      "domain": "anime-moka.com",
+      "scheme": "https",
+      "categories": [
+        {
+          "id": "cat_9927899069725",
+          "path": "/",
+          "title": "หน้าแรก"
+        },
+        {
+          "id": "cat_3718727998127",
+          "path": "/category/anime-th/",
+          "title": "พากย์ไทย"
+        },
+        {
+          "id": "cat_2686906160052",
+          "path": "/category/category/subth/",
+          "title": "ซับไทย"
+        },
+        {
+          "id": "cat_4046471925124",
+          "path": "/category/china-no1/",
+          "title": "อนิเมะจีน"
+        },
+        {
+          "id": "cat_8068052694913",
+          "path": "/category/category/themovie/",
+          "title": "เดอะมูฟวี่"
+        },
+        {
+          "id": "cat_2606925305448",
+          "path": "/air/จบแล้ว/",
+          "title": "อนิเมะจบแล้ว"
+        },
+        {
+          "id": "cat_9870160029135",
+          "path": "/air/ยังไม่จบ/",
+          "title": "อนิเมะยังไม่จบ"
+        }
+      ],
+      "search": "{base}/?s={keyword}",
+      "list": {
+        "item": "article.ez-postthumb",
+        "link": "a.ez-pt-link@href",
+        "title": "a.ez-pt-link@title|text",
+        "image": "img@data-src|src|data-srcset",
+        "subtitle": "span.ez-index-tag@text",
+        "exclude_url": [
+          "/episode/",
+          "/tag/",
+          "/genre/",
+          "/category/",
+          "/page/"
+        ]
+      },
+      "pagination": {
+        "link": ".wp-pagenavi a.page, a.page-numbers, .pagination a, nav a[href*=/page/]",
+        "active": ".wp-pagenavi span.current, span.page-numbers.current, .pagination .current"
+      },
+      "detail": {
+        "title": "meta[property=og:title]@content",
+        "title_strip": [
+          "[-–]\\s*AnimeMoji.*$"
+        ],
+        "image": "div.post-thumnail.ez-p-thum.mx-auto img@data-src|src"
+      },
+      "episodes": {
+        "item": "div.episode-b a",
+        "url": "@href",
+        "title": "@text",
+        "number_regex": "(?:ตอน(?:ที่)?|EP\\.?|Episode)\\s*(\\d+)",
+        "title_template": "ตอนที่ {n}",
+        "order": "asc"
+      },
+      "video": {
+        "steps": [
+          {
+            "do": "css",
+            "from": "page_html",
+            "sel": "iframe.perfmatters-lazy@data-src|src",
+            "as": "iframe_url"
+          },
+          {
+            "do": "regex",
+            "from": "iframe_url",
+            "pattern": "embed\\d*/([^/?]+)",
+            "group": 1,
+            "as": "video_id"
+          },
+          {
+            "do": "require",
+            "var": "video_id",
+            "message": "ไม่พบรหัสวิดีโอจาก iframe ของ Animemoji"
+          },
+          {
+            "do": "return",
+            "value": "https://moji.abcdxzy.xyz:8443/vod/{video_id}/video.mp4/playlist.m3u8"
+          }
+        ]
+      }
+    }
+  ]
 }
