@@ -1,7 +1,16 @@
 {
-  "version": 6,
-  "description": "MovieHD Engine-Only Online JSON - 24HD (24-hdc.com)",
-  "stream_rules": [],
+  "version": 7,
+  "description": "MovieHD Engine-Only Online JSON - 24HD (24-hdc.com) Video Fix",
+  "stream_rules": [
+    {
+      "match": "24playerhd\\.com|24-hdc\\.com",
+      "referer": "https://www.24-hdc.com/",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Origin": "https://www.24-hdc.com"
+      }
+    }
+  ],
   "sources": [
     {
       "id": "movie24hd",
@@ -48,12 +57,21 @@
       },
       "video": {
         "steps": [
+          { "do": "set", "name": "target_url", "value": "{episode_url}" },
+          {
+            "do": "if",
+            "cond": "empty:target_url",
+            "then": [
+              { "do": "set", "name": "target_url", "value": "{url}" }
+            ]
+          },
+          { "do": "log", "message": "24HD target_url={target_url}" },
           {
             "do": "fetch",
             "method": "GET",
-            "url": "{episode_url}",
+            "url": "{target_url}",
             "headers": {
-              "Referer": "https://{domain}/"
+              "Referer": "https://www.24-hdc.com/"
             },
             "into": "detail_html"
           },
@@ -61,7 +79,8 @@
             "do": "regex",
             "from": "detail_html",
             "patterns": [
-              "(?:var\\s+halim_nonce\\s*=\\s*['\"]|\"nonce\"\\s*:\\s*\")([a-f0-9]+)(?:['\"]|\")"
+              "(?:var\\s+halim_nonce\\s*=\\s*['\"]|\"nonce\"\\s*:\\s*\")([a-f0-9]+)(?:['\"]|\")",
+              "nonce[\"']?\\s*[:=]\\s*[\"']([a-f0-9]+)[\"']"
             ],
             "group": 1,
             "optional": true,
@@ -80,6 +99,24 @@
             "into": "post_id"
           },
           {
+            "do": "regex",
+            "from": "detail_html",
+            "patterns": [
+              "data-episode=[\"']([^\"']+)[\"']"
+            ],
+            "group": 1,
+            "optional": true,
+            "into": "ep_num"
+          },
+          {
+            "do": "if",
+            "cond": "empty:ep_num",
+            "then": [
+              { "do": "set", "name": "ep_num", "value": "1" }
+            ]
+          },
+          { "do": "log", "message": "24HD post_id={post_id} ep={ep_num} nonce={nonce}" },
+          {
             "do": "try",
             "steps": [
               {
@@ -89,24 +126,25 @@
                 "form": {
                   "action": "halim_ajax_player",
                   "nonce": "{nonce}",
-                  "episode": "{episode_number}",
+                  "episode": "{ep_num}",
                   "postid": "{post_id}",
                   "server": "1",
                   "lang": "Sound Track"
                 },
                 "headers": {
-                  "Referer": "{episode_url}",
-                  "Origin": "https://{domain}",
+                  "Referer": "{target_url}",
+                  "Origin": "https://www.24-hdc.com",
                   "X-Requested-With": "XMLHttpRequest"
                 },
                 "into": "ajax_resp"
               },
+              { "do": "log", "message": "24HD ajax_resp={ajax_resp}" },
               {
                 "do": "regex",
                 "from": "ajax_resp",
                 "patterns": [
-                  "[?&]id=([^&\"']+)",
-                  "https?:\\/\\/main\\.24playerhd\\.com\\/newplaylist\\/([^/\"'\\s]+)"
+                  "[?&]id=([^&\"'\\\\]+)",
+                  "https?:\\/\\/main\\.24playerhd\\.com\\/newplaylist\\/([^/\"'\\\\\\s]+)"
                 ],
                 "group": 1,
                 "optional": true,
@@ -126,18 +164,44 @@
                 "do": "regex",
                 "from": "ajax_resp",
                 "patterns": [
-                  "(https?:\\/\\/[^\\s\"']+\\.(?:m3u8|mp4|mkv|webm)[^\\s\"']*)",
-                  "<iframe[^>]+src=[\"']([^\"']+)[\"']"
+                  "<iframe[^>]+src=[\"']([^\"']+)[\"']",
+                  "\"src\"\\s*:\\s*\"([^\"]+)\"",
+                  "(https?:\\/\\/[^\\s\"']+\\.(?:m3u8|mp4|mkv|webm)[^\\s\"']*)"
                 ],
                 "group": 1,
                 "optional": true,
-                "into": "direct_or_iframe"
+                "into": "iframe_or_url"
               },
               {
                 "do": "if",
-                "cond": "not_empty:direct_or_iframe",
+                "cond": "not_empty:iframe_or_url",
                 "then": [
-                  { "do": "return", "value": "{direct_or_iframe}" }
+                  { "do": "replace", "from": "iframe_or_url", "find": "\\\\/", "replace": "/", "into": "iframe_or_url" },
+                  {
+                    "do": "if",
+                    "cond": "contains:iframe_or_url:id=",
+                    "then": [
+                      {
+                        "do": "regex",
+                        "from": "iframe_or_url",
+                        "patterns": ["[?&]id=([^&\"']+)"],
+                        "group": 1,
+                        "optional": true,
+                        "into": "nested_id"
+                      },
+                      {
+                        "do": "if",
+                        "cond": "not_empty:nested_id",
+                        "then": [
+                          {
+                            "do": "return",
+                            "value": "https://main.24playerhd.com/newplaylist/{nested_id}/{nested_id}.m3u8"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  { "do": "return", "value": "{iframe_or_url}" }
                 ]
               }
             ]
@@ -153,10 +217,7 @@
             "optional": true,
             "into": "fallback_url"
           },
-          {
-            "do": "return",
-            "value": "{fallback_url}"
-          }
+          { "do": "return", "value": "{fallback_url}" }
         ]
       }
     }
