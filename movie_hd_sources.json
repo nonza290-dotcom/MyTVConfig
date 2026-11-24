@@ -1,153 +1,107 @@
 {
-  "version": 5,
-  "description": "MovieHD Engine-Only Online JSON - Fixmono",
+  "version": 1,
+  "description": "MOVIE HD online source - Animemoji only. Migrated from the user's legacy Animemoji parser settings.",
   "stream_rules": [],
   "sources": [
     {
-      "id": "fixmono",
-      "name": "Fixmono",
-      "domain": "flixmono2.com",
+      "id": "animemoji",
+      "name": "Animemoji",
+      "domain": "anime-moka.com",
       "scheme": "https",
-      "enabled": true,
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-        "Referer": "https://flixmono2.com/"
-      },
       "categories": [
-        { "id": "cat_1436422493588", "title": "ซีรี่ย์อัพเดท", "path": "/serie/" },
-        { "id": "cat_6912707317315", "title": "ซีรี่ย์จีนพากย์ไทย", "path": "/category/ซีรี่ย์จีนพากย์ไทย/" },
-        { "id": "cat_5096833638035", "title": "ซีรี่ย์จีนซับไทย", "path": "/category/ซีรี่ย์จีนซับไทย/" },
-        { "id": "cat_8410071943871", "title": "ซีรี่ย์เกาหลีพากย์ไทย", "path": "/category/ซีรี่ย์เกาหลีพากย์ไทย/" },
-        { "id": "cat_7180316056242", "title": "ซีรี่ย์เกาหลีซับไทย", "path": "/category/ซีรี่ย์เกาหลีซับไทย/" },
-        { "id": "cat_7029773549828", "title": "ซีรี่ย์ฝรั่ง", "path": "/category/ดูซีรี่ย์ฝรั่ง/" },
-        { "id": "cat_3095922612902", "title": "ซีรี่ย์ญี่ปุ่น", "path": "/category/ดูซีรี่ย์ญี่ปุ่น/" }
+        {
+          "id": "cat_9927899069725",
+          "path": "/",
+          "title": "หน้าแรก"
+        },
+        {
+          "id": "cat_3718727998127",
+          "path": "/category/anime-th/",
+          "title": "พากย์ไทย"
+        },
+        {
+          "id": "cat_2686906160052",
+          "path": "/category/category/subth/",
+          "title": "ซับไทย"
+        },
+        {
+          "id": "cat_4046471925124",
+          "path": "/category/china-no1/",
+          "title": "อนิเมะจีน"
+        },
+        {
+          "id": "cat_8068052694913",
+          "path": "/category/category/themovie/",
+          "title": "เดอะมูฟวี่"
+        },
+        {
+          "id": "cat_2606925305448",
+          "path": "/air/จบแล้ว/",
+          "title": "อนิเมะจบแล้ว"
+        },
+        {
+          "id": "cat_9870160029135",
+          "path": "/air/ยังไม่จบ/",
+          "title": "อนิเมะยังไม่จบ"
+        }
       ],
-      "search": "https://{domain}/?s={keyword}",
+      "search": "{base}/?s={keyword}",
       "list": {
-        "item": "article",
-        "link": "a[rel=bookmark]",
-        "title": "a[rel=bookmark]@title",
-        "image": "img.wp-post-image@data-src|src",
-        "subtitle": "span.lang-22-color"
+        "item": "article.ez-postthumb",
+        "link": "a.ez-pt-link@href",
+        "title": "a.ez-pt-link@title|text",
+        "image": "img@data-src|src|data-srcset",
+        "subtitle": "span.ez-index-tag@text",
+        "exclude_url": [
+          "/episode/",
+          "/tag/",
+          "/genre/",
+          "/category/",
+          "/page/"
+        ]
       },
       "pagination": {
-        "link": "div.pagination a.page-link:not(.dots)",
-        "active": "div.pagination li.active a.page-link, div.pagination .page-item.active .page-link"
+        "link": ".wp-pagenavi a.page, a.page-numbers, .pagination a, nav a[href*=/page/]",
+        "active": ".wp-pagenavi span.current, span.page-numbers.current, .pagination .current"
       },
       "detail": {
         "title": "meta[property=og:title]@content",
-        "title_strip": "[] . :",
-        "image": "meta[property=og:image]@content"
+        "title_strip": [
+          "[-–]\\s*AnimeMoji.*$"
+        ],
+        "image": "div.post-thumnail.ez-p-thum.mx-auto img@data-src|src"
       },
       "episodes": {
-        "selector": "span.episode[episode-id], .mp-ep-btn[data-id]",
-        "title_template": "ตอนที่ {n}"
+        "item": "div.episode-b a",
+        "url": "@href",
+        "title": "@text",
+        "number_regex": "(?:ตอน(?:ที่)?|EP\\.?|Episode)\\s*(\\d+)",
+        "title_template": "ตอนที่ {n}",
+        "order": "asc"
       },
       "video": {
         "steps": [
           {
-            "do": "try",
-            "steps": [
-              {
-                "do": "fetch",
-                "method": "POST",
-                "url": "https://{domain}/wp-admin/admin-ajax.php",
-                "form": {
-                  "action": "mix_get_player",
-                  "post_id": "{episode_id}"
-                },
-                "headers": {
-                  "Referer": "{episode_url}",
-                  "X-Requested-With": "XMLHttpRequest"
-                },
-                "into": "ajax_resp"
-              },
-              {
-                "do": "regex",
-                "from": "ajax_resp",
-                "patterns": [
-                  "sources:\\s*\\[\\s*\\{\\s*file:\\s*\"([^\"]+\\.m3u8[^\"]*)\"",
-                  "\"sources\"\\s*:\\s*\\[\\s*\\{\\s*\"file\"\\s*:\\s*\"([^\"]+\\.m3u8[^\"]*)\"",
-                  "(https?:\\/\\/[^\\s\"']+\\.(?:m3u8|mp4|mkv|webm))"
-                ],
-                "group": 1,
-                "optional": true,
-                "into": "stream_url"
-              },
-              {
-                "do": "if",
-                "cond": "not_empty:stream_url",
-                "then": [
-                  { "do": "return", "value": "{stream_url}" }
-                ]
-              },
-              {
-                "do": "regex",
-                "from": "ajax_resp",
-                "patterns": [
-                  "<iframe[^>]+src=[\"']([^\"']+)[\"']",
-                  "\"src\"\\s*:\\s*\"(https?:\\\\/\\\\/[^\"]+)\""
-                ],
-                "group": 1,
-                "optional": true,
-                "into": "iframe_url"
-              },
-              {
-                "do": "if",
-                "cond": "not_empty:iframe_url",
-                "then": [
-                  { "do": "replace", "from": "iframe_url", "find": "\\\\/", "replace": "/", "into": "iframe_url" },
-                  {
-                    "do": "fetch",
-                    "method": "GET",
-                    "url": "{iframe_url}",
-                    "headers": { "Referer": "{episode_url}" },
-                    "into": "iframe_html"
-                  },
-                  {
-                    "do": "regex",
-                    "from": "iframe_html",
-                    "patterns": [
-                      "sources:\\s*\\[\\s*\\{\\s*file:\\s*\"([^\"]+\\.m3u8[^\"]*)\"",
-                      "\"file\"\\s*:\\s*\"(https?:[^\"]+\\.m3u8[^\"]*)\"",
-                      "(https?:\\/\\/[^\\s\"']+\\.(?:m3u8|mp4|mkv|webm))"
-                    ],
-                    "group": 1,
-                    "optional": true,
-                    "into": "iframe_stream"
-                  },
-                  {
-                    "do": "if",
-                    "cond": "not_empty:iframe_stream",
-                    "then": [
-                      { "do": "return", "value": "{iframe_stream}" }
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "do": "fetch",
-            "method": "GET",
-            "url": "{episode_url}",
-            "headers": { "Referer": "https://{domain}/" },
-            "into": "page_html"
+            "do": "css",
+            "from": "page_html",
+            "sel": "iframe.perfmatters-lazy@data-src|src",
+            "as": "iframe_url"
           },
           {
             "do": "regex",
-            "from": "page_html",
-            "patterns": [
-              "(https?:\\/\\/[^\\s\"']+\\.(?:m3u8|mp4|mkv|webm))",
-              "<iframe[^>]+src=[\"']([^\"']+)[\"']"
-            ],
+            "from": "iframe_url",
+            "pattern": "embed\\d*/([^/?]+)",
             "group": 1,
-            "optional": true,
-            "into": "fallback_url"
+            "as": "video_id"
+          },
+          {
+            "do": "require",
+            "var": "video_id",
+            "message": "ไม่พบรหัสวิดีโอจาก iframe ของ Animemoji"
           },
           {
             "do": "return",
-            "value": "{fallback_url}"
+            "value": "https://moji.abcdxzy.xyz:8443/vod/{video_id}/video.mp4/playlist.m3u8"
           }
         ]
       }
