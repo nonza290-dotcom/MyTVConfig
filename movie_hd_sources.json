@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "description": "MOVIE HD website catalog containing only Animemoji, Fixmono, GoSeries4K, and WowDrama.",
+  "description": "MOVIE HD website catalog: Animemoji, Fixmono, GoSeries4K, WowDrama.",
   "stream_rules": [],
   "sources": [
     {
       "id": "animemoji",
-      "logo": "",
       "name": "Animemoji",
       "domain": "anime-moka.com",
+      "scheme": "https",
       "categories": [
         {
           "id": "cat_9927899069725",
@@ -45,51 +45,66 @@
           "title": "อนิเมะยังไม่จบ"
         }
       ],
-      "home_page": "/",
-      "search": "https://{domain}/?s={keyword}",
+      "search": "{base}/?s={keyword}",
       "list": {
         "item": "article.ez-postthumb",
         "link": "a.ez-pt-link@href",
-        "title": "a.ez-pt-link@title",
+        "title": "a.ez-pt-link@title|text",
         "image": "img@data-src|src|data-srcset",
-        "subtitle": "span.ez-index-tag@text"
+        "subtitle": "span.ez-index-tag@text",
+        "exclude_url": [
+          "/episode/",
+          "/tag/",
+          "/genre/",
+          "/category/",
+          "/page/"
+        ]
       },
       "pagination": {
         "link": ".wp-pagenavi a.page, a.page-numbers, .pagination a, nav a[href*=/page/]",
-        "active": ".wp-pagenavi span.current, span.page-numbers.current, .pagination .current",
-        "all_labels": true
+        "active": ".wp-pagenavi span.current, span.page-numbers.current, .pagination .current"
       },
       "detail": {
         "title": "meta[property=og:title]@content",
-        "image": "meta[property=og:image]@content"
+        "title_strip": [
+          "[-–]\\s*AnimeMoji.*$"
+        ],
+        "image": "div.post-thumnail.ez-p-thum.mx-auto img@data-src|src"
       },
       "episodes": {
         "item": "div.episode-b a",
         "url": "@href",
         "title": "@text",
-        "number_regex": "(\\d+)",
-        "order": "desc"
+        "number_regex": "(?:ตอน(?:ที่)?|EP\\.?|Episode)\\s*(\\d+)",
+        "title_template": "ตอนที่ {n}",
+        "order": "asc"
       },
       "video": {
         "steps": [
           {
             "do": "css",
+            "from": "page_html",
             "sel": "iframe.perfmatters-lazy@data-src|src",
-            "as": "embed_url"
+            "as": "iframe_url"
           },
           {
             "do": "regex",
-            "from": "embed_url",
-            "pattern": "embed\\\\d*/([^/?]+)",
+            "from": "iframe_url",
+            "pattern": "embed\\d*/([^/?]+)",
+            "group": 1,
             "as": "video_id"
+          },
+          {
+            "do": "require",
+            "var": "video_id",
+            "message": "ไม่พบรหัสวิดีโอจาก iframe ของ Animemoji"
           },
           {
             "do": "return",
             "value": "https://moji.abcdxzy.xyz:8443/vod/{video_id}/video.mp4/playlist.m3u8"
           }
         ]
-      },
-      "scheme": "https"
+      }
     },
     {
       "id": "fixmono",
@@ -205,30 +220,66 @@
           "title": "ซีรี่ย์ไทย"
         }
       ],
-      "home_page": "/category/ดู-ซีรี่ย์ออนไลน์/",
-      "search": "https://{domain}/?s={keyword}",
+      "home_page": "/",
+      "search": "{base}/?s={keyword}",
       "list": {
-        "item": "div.-movie",
-        "link": "div.pic a@href",
-        "title": "h2.entry-title a@text",
-        "image": "div.pic img@data-src|data-lazy-src|data-original|src",
-        "subtitle": "div.qa-label.qa-bg@text"
+        "item": "div.-movie, article.movie, .movies article, .item-movies",
+        "link": [
+          "div.pic a@href",
+          ".poster a@href",
+          "a[href]@href"
+        ],
+        "title": [
+          "h2.entry-title a@text",
+          ".title a@text",
+          "h2 a@text",
+          "a@title",
+          "img@alt"
+        ],
+        "image": [
+          "div.pic img@data-src|data-lazy-src|data-original|src",
+          ".poster img@data-src|data-lazy-src|data-original|src",
+          "img@data-src|data-lazy-src|data-original|src"
+        ],
+        "subtitle": [
+          "div.qa-label.qa-bg@text",
+          ".quality@text",
+          ".imdb@text"
+        ]
       },
       "pagination": {
-        "link": "div.content-pagination a.page-numbers:not(.prev):not(.next)",
-        "active": "div.content-pagination span.page-numbers.current"
+        "link": "div.content-pagination a.page-numbers, .pagination a.page-numbers, a.page-numbers",
+        "active": "div.content-pagination span.page-numbers.current, .pagination .current, span.page-numbers.current"
       },
       "detail": {
-        "title": "meta[property=og:title]@content",
-        "image": "meta[property=og:image]@content"
+        "title": [
+          "meta[property=og:title]@content",
+          "h1@text",
+          "title@text"
+        ],
+        "title_strip": [
+          "[-–]\\s*Goseries4k.*$"
+        ],
+        "image": [
+          "meta[property=og:image]@content",
+          "img.wp-post-image@src"
+        ]
       },
       "episodes": {
-        "item": "span.episode[episode-id], .mp-ep-btn[data-id]",
-        "id": "@episode-id|data-id",
-        "title": "@text",
+        "item": "span.episode[episode-id], .mp-ep-btn[data-id], .miru-ep-btn[data-ep-id], [data-ep-id]",
+        "id": [
+          "@episode-id",
+          "@data-id",
+          "@data-ep-id"
+        ],
+        "title": [
+          "@title",
+          "@text"
+        ],
         "url_template": "{page_url}?episode-id={id}",
-        "number_regex": "(\\d+)",
-        "order": "desc"
+        "number_regex": "(?:EP\\.?\\s*|ตอน(?:ที่)?\\s*)(\\d+)",
+        "title_template": "ตอนที่ {n}",
+        "order": "asc"
       },
       "scheme": "https"
     },
@@ -279,30 +330,70 @@
           "title": "ซีรี่ย์เกาหลีพากย์ไทย"
         }
       ],
-      "home_page": "/category/the-series-all/",
-      "search": "https://{domain}/?s={keyword}",
+      "home_page": "/",
+      "search": "{base}/?s={keyword}",
       "list": {
-        "item": "div.-movie",
-        "link": "div.pic a, .poster a, a[href]@href",
-        "title": "h2.entry-title a@text",
-        "image": "div.pic img, .poster img, img@data-src|data-lazy-src|data-original|src",
-        "subtitle": "div.imdb, .imdb, .quality@text"
+        "item": "div.-movie, article.movie, .movies article, .item-movies",
+        "link": [
+          "div.pic a@href",
+          ".poster a@href",
+          "h2 a@href",
+          "h3 a@href",
+          "a[href]@href"
+        ],
+        "title": [
+          "h2.entry-title a@text",
+          ".title a@text",
+          "h2 a@text",
+          "h3 a@text",
+          "a@title",
+          "img@alt"
+        ],
+        "image": [
+          "div.pic img@data-wpfc-original-src|data-src|data-lazy-src|data-original|src",
+          ".poster img@data-wpfc-original-src|data-src|data-lazy-src|data-original|src",
+          "img@data-wpfc-original-src|data-src|data-lazy-src|data-original|src"
+        ],
+        "subtitle": [
+          "div.imdb@text",
+          ".imdb@text",
+          ".quality@text"
+        ]
       },
       "pagination": {
-        "link": "a.page-numbers:not(.prev):not(.next)",
-        "active": "span.current"
+        "link": "div.content-pagination a.page-numbers:not(.prev):not(.next), a.page-numbers:not(.prev):not(.next)",
+        "active": "div.content-pagination span.page-numbers.current, span.page-numbers.current"
       },
       "detail": {
-        "title": "meta[property=og:title]@content",
-        "image": "meta[property=og:image]@content"
+        "title": [
+          "meta[property=og:title]@content",
+          "h1@text",
+          "title@text"
+        ],
+        "title_strip": [
+          "\\s*[-|–].*WOW-DRAMA.*$"
+        ],
+        "image": [
+          "meta[property=og:image]@content",
+          "img.wp-post-image@src"
+        ]
       },
       "episodes": {
-        "item": "div.miru-ep-btn[data-ep-id], span.episode[episode-id], .mp-ep-btn[data-id]",
-        "id": "@episode-id|data-id",
-        "title": "@text",
+        "item": "div.miru-ep-btn[data-ep-id], span.episode[episode-id], .mp-ep-btn[data-id], [data-ep-id]",
+        "id": [
+          "@data-ep-id",
+          "@episode-id",
+          "@data-id"
+        ],
+        "title": [
+          ".miru-ep-title@text",
+          "@title",
+          "@text"
+        ],
         "url_template": "{page_url}?episode-id={id}",
-        "number_regex": "(\\d+)",
-        "order": "desc"
+        "number_regex": "(?:EP\\.?\\s*|ตอน(?:ที่)?\\s*)(\\d+)",
+        "title_template": "ตอนที่ {n}",
+        "order": "asc"
       },
       "scheme": "https"
     }
