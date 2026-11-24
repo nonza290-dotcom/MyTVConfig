@@ -58,31 +58,25 @@
         
       ,
       "video": {
-        "steps": [
-          {
-            "do": "regex",
-            "from": "page_html",
-            "pattern": "<iframe[^>]+src=[\"'](https?://player77hdfree\\.xyz/embed/[^\"']+)[\"']",
-            "as": "player_url"
-          },
-          {
-            "do": "fetch",
-            "url": "{player_url}",
-            "referer": "{page_url}",
-            "as": "player_html"
-          },
-          {
-            "do": "regex",
-            "from": "player_html",
-            "pattern": "\\\"vdoId\\\"\\s*:\\s*\\\"([A-Za-z0-9_-]+)\\\"",
-            "as": "vdo_id"
-          },
-          {
-            "do": "return",
-            "value": "https://vdohls.com/{vdo_id}/playlist.m3u8"
-          }
-        ]
-      }
+  "steps": [
+    {
+      "do": "fetch",
+      "url": "{page_url}",
+      "referer": "{referer}",
+      "as": "player_html"
+    },
+    {
+      "do": "regex",
+      "from": "player_html",
+      "pattern": "\\\\\"vdoId\\\\\"\\s*:\\s*\\\\\"([A-Za-z0-9_-]+)\\\\\"",
+      "as": "vdo_id"
+    },
+    {
+      "do": "return",
+      "value": "https://vdohls.com/{vdo_id}/playlist.m3u8"
+    }
+  ]
+}
     }
   ]
 }
