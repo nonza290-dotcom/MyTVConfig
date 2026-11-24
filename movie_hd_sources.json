@@ -1,200 +1,156 @@
 {
-  "description": "MovieHD Online JSON Config - Fixmono Only",
   "version": 5,
-  "updated_at": "2026-11-25",
-  "app_config": {
-    "sources": [
-      {
-        "id": "fixmono",
-        "logo": "",
-        "name": "Fixmono",
-        "domain": "flixmono2.com",
-        "categories": [
-          { "id": "cat_1436422493588", "path": "/serie/", "title": "ซีรี่ย์อัพเดท" },
-          { "id": "cat_6912707317315", "path": "/category/ซีรี่ย์จีนพากย์ไทย/", "title": "ซีรี่ย์จีนพากย์ไทย" },
-          { "id": "cat_5096833638035", "path": "/category/ซีรี่ย์จีนซับไทย/", "title": "ซีรี่ย์จีนซับไทย" },
-          { "id": "cat_8410071943871", "path": "/category/ซีรี่ย์เกาหลีพากย์ไทย/", "title": "ซีรี่ย์เกาหลีพากย์ไทย" },
-          { "id": "cat_7180316056242", "path": "/category/ซีรี่ย์เกาหลีซับไทย/", "title": "ซีรี่ย์เกาหลีซับไทย" },
-          { "id": "cat_7029773549828", "path": "/category/ดูซีรี่ย์ฝรั่ง/", "title": "ซีรี่ย์ฝรั่ง" },
-          { "id": "cat_3095922612902", "path": "/category/ดูซีรี่ย์ญี่ปุ่น/", "title": "ซีรี่ย์ญี่ปุ่น" }
-        ]
-      }
-    ],
-    "metadata": {
-      "api_urls": {
-        "get_api": "https://api.24-hdc.com/get.php",
-        "play_api": "https://main.24playerhd.com/newplaylist/",
-        "play_animemoji": "https://moji.abcdxzy.xyz:8443/vod/",
-        "getplay_stream_api": "https://torbo007.com/api/stream/"
+  "description": "MovieHD Engine-Only Online JSON - Fixmono",
+  "stream_rules": [],
+  "sources": [
+    {
+      "id": "fixmono",
+      "name": "Fixmono",
+      "domain": "flixmono2.com",
+      "scheme": "https",
+      "enabled": true,
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://flixmono2.com/"
       },
-      "home_paths": {
-        "fixmono": "/serie/"
-      },
-      "source_names": {
-        "default": "Fixmono",
-        "fixmono": "Fixmono"
-      }
-    }
-  },
-  "parsers": {
-    "FIXMONO": {
-      "source_class": "FixmonoSource",
-      "parser_class": "FixmonoParser",
-      "base_url_template": "https://{base_url}{home_page}",
-      "search_url_template": "https://{base_url}/?s={keyword}",
+      "categories": [
+        { "id": "cat_1436422493588", "title": "ซีรี่ย์อัพเดท", "path": "/serie/" },
+        { "id": "cat_6912707317315", "title": "ซีรี่ย์จีนพากย์ไทย", "path": "/category/ซีรี่ย์จีนพากย์ไทย/" },
+        { "id": "cat_5096833638035", "title": "ซีรี่ย์จีนซับไทย", "path": "/category/ซีรี่ย์จีนซับไทย/" },
+        { "id": "cat_8410071943871", "title": "ซีรี่ย์เกาหลีพากย์ไทย", "path": "/category/ซีรี่ย์เกาหลีพากย์ไทย/" },
+        { "id": "cat_7180316056242", "title": "ซีรี่ย์เกาหลีซับไทย", "path": "/category/ซีรี่ย์เกาหลีซับไทย/" },
+        { "id": "cat_7029773549828", "title": "ซีรี่ย์ฝรั่ง", "path": "/category/ดูซีรี่ย์ฝรั่ง/" },
+        { "id": "cat_3095922612902", "title": "ซีรี่ย์ญี่ปุ่น", "path": "/category/ดูซีรี่ย์ญี่ปุ่น/" }
+      ],
+      "search": "https://{domain}/?s={keyword}",
       "list": {
-        "item_selector": "article",
-        "link_selector": "a[rel=bookmark]",
-        "title_attr": "title",
-        "url_attr": "href",
-        "image_selector": "img.wp-post-image",
-        "image_attrs": ["data-src", "src"],
-        "subtitle_selector": "span.lang-22-color"
+        "item": "article",
+        "link": "a[rel=bookmark]",
+        "title": "a[rel=bookmark]@title",
+        "image": "img.wp-post-image@data-src|src",
+        "subtitle": "span.lang-22-color"
       },
       "pagination": {
-        "link_selector": "div.pagination a.page-link:not(.dots)",
-        "active_selector": [
-          "div.pagination li.active a.page-link",
-          "div.pagination .page-item.active .page-link"
-        ]
+        "link": "div.pagination a.page-link:not(.dots)",
+        "active": "div.pagination li.active a.page-link, div.pagination .page-item.active .page-link"
       },
       "detail": {
-        "title_selector": "meta[property=og:title]",
-        "title_transform": "strip_chars:[\\[\\].:]|trim",
-        "image_selector": "meta[property=og:image]"
+        "title": "meta[property=og:title]@content",
+        "title_strip": "[] . :",
+        "image": "meta[property=og:image]@content"
       },
       "episodes": {
-        "element_selector": "span.episode[episode-id], .mp-ep-btn[data-id]",
-        "id_attrs": ["episode-id", "data-id"],
-        "fake_url_template": "{referer}?episode-id={episode_id}",
+        "selector": "span.episode[episode-id], .mp-ep-btn[data-id]",
         "title_template": "ตอนที่ {n}"
       },
       "video": {
-        "strategy": "ajax_post_then_fallback",
-        "ajax": {
-          "url_template": "https://{domain}/wp-admin/admin-ajax.php",
-          "method": "POST",
-          "action": "mix_get_player",
-          "body": { "action": "mix_get_player", "post_id": "{episode_id}" },
-          "headers": {
-            "User-Agent": "Mozilla/5.0",
-            "Referer": "{referer}",
-            "X-Requested-With": "XMLHttpRequest"
-          },
-          "response_parsers": [
-            { "type": "torbo_stream", "pattern": "{stream_host}/(?:embed|play)/([A-Za-z0-9]{32})" },
-            {
-              "type": "jwplayer",
-              "patterns": [
-                "sources:\\s*\\[\\s*\\{\\s*file:\\s*\"([^\"]+\\.m3u8)\"",
-                "\"sources\"\\s*:\\s*\\[\\s*\\{\\s*\"file\"\\s*:\\s*\"([^\"]+\\.m3u8)\""
-              ]
-            },
-            { "type": "json", "paths": ["player.primary", "player.data.*[].url"] },
-            { "type": "iframe", "selector": "iframe[src]" }
-          ]
-        },
-        "fallback": [
+        "steps": [
           {
-            "type": "direct_url_pattern",
-            "pattern": "(https?:\\/\\/[^\\s\"']+\\.(?:m3u8|mp4|mkv|webm))",
-            "exclude": ["localhost", "127.0.0.1"]
+            "do": "try",
+            "steps": [
+              {
+                "do": "fetch",
+                "method": "POST",
+                "url": "https://{domain}/wp-admin/admin-ajax.php",
+                "form": {
+                  "action": "mix_get_player",
+                  "post_id": "{episode_id}"
+                },
+                "headers": {
+                  "Referer": "{episode_url}",
+                  "X-Requested-With": "XMLHttpRequest"
+                },
+                "into": "ajax_resp"
+              },
+              {
+                "do": "regex",
+                "from": "ajax_resp",
+                "patterns": [
+                  "sources:\\s*\\[\\s*\\{\\s*file:\\s*\"([^\"]+\\.m3u8[^\"]*)\"",
+                  "\"sources\"\\s*:\\s*\\[\\s*\\{\\s*\"file\"\\s*:\\s*\"([^\"]+\\.m3u8[^\"]*)\"",
+                  "(https?:\\/\\/[^\\s\"']+\\.(?:m3u8|mp4|mkv|webm))"
+                ],
+                "group": 1,
+                "optional": true,
+                "into": "stream_url"
+              },
+              {
+                "do": "if",
+                "cond": "not_empty:stream_url",
+                "then": [
+                  { "do": "return", "value": "{stream_url}" }
+                ]
+              },
+              {
+                "do": "regex",
+                "from": "ajax_resp",
+                "patterns": [
+                  "<iframe[^>]+src=[\"']([^\"']+)[\"']",
+                  "\"src\"\\s*:\\s*\"(https?:\\\\/\\\\/[^\"]+)\""
+                ],
+                "group": 1,
+                "optional": true,
+                "into": "iframe_url"
+              },
+              {
+                "do": "if",
+                "cond": "not_empty:iframe_url",
+                "then": [
+                  { "do": "replace", "from": "iframe_url", "find": "\\\\/", "replace": "/", "into": "iframe_url" },
+                  {
+                    "do": "fetch",
+                    "method": "GET",
+                    "url": "{iframe_url}",
+                    "headers": { "Referer": "{episode_url}" },
+                    "into": "iframe_html"
+                  },
+                  {
+                    "do": "regex",
+                    "from": "iframe_html",
+                    "patterns": [
+                      "sources:\\s*\\[\\s*\\{\\s*file:\\s*\"([^\"]+\\.m3u8[^\"]*)\"",
+                      "\"file\"\\s*:\\s*\"(https?:[^\"]+\\.m3u8[^\"]*)\"",
+                      "(https?:\\/\\/[^\\s\"']+\\.(?:m3u8|mp4|mkv|webm))"
+                    ],
+                    "group": 1,
+                    "optional": true,
+                    "into": "iframe_stream"
+                  },
+                  {
+                    "do": "if",
+                    "cond": "not_empty:iframe_stream",
+                    "then": [
+                      { "do": "return", "value": "{iframe_stream}" }
+                    ]
+                  }
+                ]
+              }
+            ]
           },
-          { "type": "iframe_pattern", "pattern": "<iframe[^>]+src=[\"']([^\"']+)[\"']" },
-          { "type": "script_json_pattern", "pattern": "\"(?:file|url|src)\"\\s*:\\s*\"([^\"]+\\.(?:m3u8|mp4))\"" },
-          { "type": "script_js_pattern", "pattern": "(?:videoSources|sources|jwplayer\\().*?file.*?\"(https?:\\\\/\\\\/[^\"]+)\"" },
-          { "type": "backup_server_selector", "selector": "div.mp-s-sl", "attr": "data-id" }
-        ],
-        "iframe_processing": {
-          "order": [
-            "torbo_stream",
-            "getplay_stream",
-            "original_iframe",
-            "direct_url",
-            "nested_iframe",
-            "script"
-          ],
-          "torbo": { "pattern": "{stream_host}/(?:embed|play)/([A-Za-z0-9]{32})" },
-          "getplay": {
+          {
+            "do": "fetch",
+            "method": "GET",
+            "url": "{episode_url}",
+            "headers": { "Referer": "https://{domain}/" },
+            "into": "page_html"
+          },
+          {
+            "do": "regex",
+            "from": "page_html",
             "patterns": [
-              "https?://(?:getplay-cdn|moddepp)\\.com/(?:embed|play)/([A-Za-z0-9_-]{20,})",
-              "(?:getplay-cdn|moddepp)\\.com/api/stream/([A-Za-z0-9_-]{20,})/index\\.m3u8",
-              "(?:getplay-cdn|moddepp)\\.com/(?:embed|play)/([A-Za-z0-9_-]{20,})"
+              "(https?:\\/\\/[^\\s\"']+\\.(?:m3u8|mp4|mkv|webm))",
+              "<iframe[^>]+src=[\"']([^\"']+)[\"']"
             ],
-            "cdn_hosts": { "moddepp": "moddepp.com", "getplay-cdn": "getplay-cdn.com" }
+            "group": 1,
+            "optional": true,
+            "into": "fallback_url"
           },
-          "original_iframe": {
-            "script_marker": "videoSources",
-            "video_server_pattern": "\"videoServer\":\"(\\d+)\"",
-            "video_sources_pattern": "\"videoSources\":\\[\\{\"file\":\"([^\"]+)\"",
-            "host_list_pattern": "\"hostList\":(\\{.*?\\})",
-            "url_transform": {
-              "from": "https:\\\\/\\\\/\\d+\\\\/cdn\\\\/hls\\\\/",
-              "to": "https://{domain}/api/files/",
-              "unescape": true
-            }
+          {
+            "do": "return",
+            "value": "{fallback_url}"
           }
-        }
+        ]
       }
     }
-  },
-  "shared": {
-    "domain_config": {
-      "base_url": "{DomainConfig.BaseUrl.*}",
-      "home_page": "{DomainConfig.HomePage.*}",
-      "source_name": "{DomainConfig.SourceName.*}",
-      "play_api": "{DomainConfig.ApiUrl.PLAY_API}",
-      "get_api": "{DomainConfig.ApiUrl.GET_API}",
-      "play_animemoji": "{DomainConfig.ApiUrl.PLAY_ANIMEMOJI}",
-      "getplay_stream_api": "{DomainConfig.ApiUrl.GETPLAY_STREAM_API}"
-    },
-    "http": {
-      "client_factory": "OkHttpClientFactory.getClientWithDoH",
-      "default_ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-      "challenge_ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-      "watchlakorn_ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-    },
-    "resolvers": {
-      "getplay_stream": "GetplayStreamResolver.resolve(streamBase, id, parent, client)",
-      "torbo_stream_parent": "domain or stream_host",
-      "getplay_stream_parent_defaults": {
-        "Fixmono": "flixmono.com"
-      }
-    },
-    "models": {
-      "anime": "Anime(title, url, image, episodes)",
-      "episode": "Episode(title, url, imageUrl, videoUrl, referer, number)",
-      "anime_item": "AnimeItem(title, url, imageUrl, subtitleText[, latestEpisode])",
-      "page_item": "PageItem(number, url, isActive)",
-      "host_list": "HostListModel.hostList: Map<String, List<String>>"
-    },
-    "interface": {
-      "AnimeSource": ["getSourceName", "getBaseUrl", "getSearchUrl", "fetchAnimeList", "cleanup"],
-      "AnimeParser": ["parseAnimeDetail", "parseEpisodes", "parseVideoUrl"],
-      "AnimeLoadCallback": ["onSuccess(animeItems, pageItems)", "onFailure(errorMessage)"]
-    }
-  },
-  "remote_update": {
-    "enabled": true,
-    "transport": "https_get_json",
-    "cache_ttl_seconds": 3600,
-    "fallback_to_bundled": true,
-    "field_overrides": [
-      "app_config.sources",
-      "app_config.metadata",
-      "parsers.{NAME}.list.*",
-      "parsers.{NAME}.pagination.*",
-      "parsers.{NAME}.detail.*",
-      "parsers.{NAME}.episodes.*",
-      "parsers.{NAME}.video.*",
-      "parsers.{NAME}.base_url_template",
-      "parsers.{NAME}.search_url_template",
-      "shared.resolvers.*"
-    ],
-    "safety": {
-      "validate_json_schema": true,
-      "require_version_monotonic": true,
-      "reject_empty_required_fields": true
-    }
-  }
+  ]
 }
