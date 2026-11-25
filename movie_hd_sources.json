@@ -280,17 +280,17 @@
         "as": "player_unescaped"
       },
       {
-        "do": "regex",
-        "from": "player_unescaped",
-        "patterns": [
-          "(https?://[^\\s\"\\'<>]+?\\.(?:m3u8|mp4)(?:\\?[^\\s\"\\'<>]*)?)",
-          "<iframe[^>]+src\\s*=\\s*['\\\"]([^'\\\"]+)['\\\"]",
-          "(https?://main\\.24playerhd\\.com/[^\\s\"\\'<>]+)"
-        ],
-        "group": 1,
-        "as": "player_url",
-        "optional": true
-      },
+  "do": "regex",
+  "from": "player_unescaped",
+  "patterns": [
+    "(https?://[^\\s\"'<>]+?\\.(?:m3u8|mp4)(?:\\?[^\\s\"'<>]*)?)",
+    "<iframe[^>]+src\\s*=\\s*['\"]([^'\"]+)['\"]",
+    "(https?://main\\.24playerhd\\.com/[^\\s\"'<>]+)"
+  ],
+  "group": 1,
+  "as": "player_url",
+  "optional": true
+},
       {
         "do": "if",
         "var": "player_url",
