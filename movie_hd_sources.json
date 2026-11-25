@@ -1,7 +1,12 @@
 {
   "version": 1,
-  "description": "MOVIE HD online source.",
-  "stream_rules": [],
+  "description": "MOVIE HD online source - Animemoji, SeriesDay, WatchLakorn",
+  "stream_rules": [
+    {
+      "match": "main.24playerhd.com",
+      "referer_template": "{video_url|origin}/"
+    }
+  ],
   "sources": [
     {
       "id": "animemoji",
@@ -379,10 +384,8 @@
           }
         ]
       }
-    }
-  ]
-},
-{
+    },
+    {
       "id": "watchlakorn",
       "logo": "",
       "name": "Watch Lakorn",
@@ -580,7 +583,5 @@
         ]
       }
     }
-  ]
-}
   ]
 }
