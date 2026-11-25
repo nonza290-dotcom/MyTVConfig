@@ -158,3 +158,128 @@
             "default": "",
             "as": "nonce"
           },
+          {
+            "do": "css",
+            "from": "page_html",
+            "sel": [
+              "span.halim-btn.active@data-server",
+              "span.halim-btn@data-server"
+            ],
+            "as": "server_dom",
+            "optional": true
+          },
+          {
+            "do": "first_non_empty",
+            "vars": [
+              "server_dom"
+            ],
+            "default": "1",
+            "as": "server"
+          },
+          {
+            "do": "css",
+            "from": "page_html",
+            "sel": "#Lang_select option[selected]@value|text",
+            "as": "lang",
+            "optional": true
+          },
+          {
+            "do": "first_non_empty",
+            "vars": [
+              "lang"
+            ],
+            "default": "Sound Track",
+            "as": "lang"
+          },
+          {
+            "do": "require",
+            "var": "post_id",
+            "message": "ไม่พบ post_id ในปุ่ม Player ของหน้าตอนนี้"
+          },
+          {
+            "do": "require",
+            "var": "nonce",
+            "message": "ไม่พบ nonce/type สำหรับ Player API"
+          },
+          {
+            "do": "require",
+            "var": "episode",
+            "message": "ไม่พบรหัสตอนสำหรับ Player API"
+          },
+          {
+            "do": "fetch",
+            "url": "{base}/api/get.php",
+            "method": "POST",
+            "referer": "{referer}",
+            "headers": {
+              "User-Agent": "{ua}",
+              "Referer": "{referer}",
+              "Origin": "{base}",
+              "X-Requested-With": "XMLHttpRequest"
+            },
+            "form": {
+              "action": "halim_ajax_player",
+              "nonce": "{nonce}",
+              "episode": "{episode}",
+              "postid": "{post_id}",
+              "server": "{server}",
+              "lang": "{lang}"
+            },
+            "as": "player_response"
+          },
+          {
+            "do": "replace",
+            "from": "player_response",
+            "find": "\\\\/",
+            "with": "/",
+            "as": "player_unescaped"
+          },
+          {
+            "do": "regex",
+            "from": "player_unescaped",
+            "patterns": [
+              "(https?://[^\\s\\\"'<>]+?\\.(?:m3u8|mp4)(?:\\?[^\\s\\\"'<>]*)?)",
+              "<iframe[^>]+src\\s*=\\s*['\\\"]([^'\\\"]+)['\\\"]"
+            ],
+            "group": 1,
+            "as": "player_url",
+            "optional": true
+          },
+          {
+            "do": "if",
+            "var": "player_url",
+            "matches": "\\.(?:m3u8|mp4)(?:[?#]|$)",
+            "then": [
+              {
+                "do": "return",
+                "value": "{player_url}"
+              }
+            ]
+          },
+          {
+            "do": "require",
+            "var": "player_url",
+            "message": "API ไม่ส่ง iframe หรือ media URL กลับมา"
+          },
+          {
+            "do": "regex",
+            "from": "player_url",
+            "pattern": "(?:[?&]id=)([^&]+)",
+            "group": 1,
+            "as": "playlist_id",
+            "optional": true
+          },
+          {
+            "do": "require",
+            "var": "playlist_id",
+            "message": "ไม่พบ id ใน URL ของ iframe Player"
+          },
+          {
+            "do": "return",
+            "value": "https://main.24playerhd.com/newplaylist/{playlist_id}/{playlist_id}.m3u8"
+          }
+        ]
+      }
+    }
+  ]
+}
