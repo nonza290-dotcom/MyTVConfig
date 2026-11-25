@@ -9,281 +9,268 @@
   ],
   "sources": [
     {
-      "id": "movie123",
-      "logo": "",
-      "name": "123HDD",
-      "domain": "www.123-hdc.com",
-      "categories": [
-        {
-          "id": "cat_1255438103477",
-          "path": "/ซีรี่ย์ใหม่-2026-2",
-          "title": "ซีรี่ย์ใหม่-2026"
-        },
-        {
-          "id": "cat_3613660145641",
-          "path": "/หนังใหม่-2026",
-          "title": "หนังออนไลน์"
-        },
-        {
-          "id": "cat_4319697004285",
-          "path": "/หนังใหม่-2025",
-          "title": "หนังใหม่-2025"
-        },
-        {
-          "id": "cat_1558491116560",
-          "path": "/หนังใหม่-2024",
-          "title": "หนังใหม่-2024"
-        },
-        {
-          "id": "cat_5788607265412",
-          "path": "/หนังใหม่-2023",
-          "title": "หนังใหม่-2023"
-        },
-        {
-          "id": "cat_9390776775802",
-          "path": "/หนังใหม่-2022",
-          "title": "หนังใหม่-2022"
-        },
-        {
-          "id": "cat_4985844710710",
-          "path": "/หนังใหม่-2021",
-          "title": "หนังใหม่-2021"
-        },
-        {
-          "id": "cat_2735327473780",
-          "path": "/หนังใหม่-2020",
-          "title": "หนังใหม่-2020"
-        },
-        {
-          "id": "cat_4693904241508",
-          "path": "/ดูหนังออนไลน์/หนังไทย",
-          "title": "หนังไทย"
-        },
-        {
-          "id": "cat_6234827185576",
-          "path": "/ดูซีรี่ย์ออนไลน์/ซีรี่ย์ใหม่-2025",
-          "title": "ซีรี่ย์ใหม่ 2025"
-        },
-        {
-          "id": "cat_4395352625760",
-          "path": "/ดูซีรี่ย์ออนไลน์/ซีรี่ย์ใหม่-2023",
-          "title": "ซีรี่ย์ใหม่ 2023"
-        },
-        {
-          "id": "cat_8830180811656",
-          "path": "/หนังการ์ตูน/anime-อนิเมะ",
-          "title": "Anime ดูอนิเมะ"
-        },
-        {
-          "id": "cat_7728811824597",
-          "path": "/หนังการ์ตูน/animation",
-          "title": "Animation อนิเมชั่น"
-        }
-      ],
-      "home_page": "/",
-      "search": "https://{domain}/?s={keyword}",
-      "list": {
-        "item": "article.halim-item, div.halim-item, [class*=halim-item]",
-        "link": "a.halim-thumb@href",
-        "title": "h2.entry-title@text",
-        "image": "img.lazyload@data-src|src"
-      },
-      "pagination": {
-        "link": "ul.page-numbers a.page-numbers:not(.prev):not(.next)",
-        "active": "span.page-numbers.current"
-      },
-      "detail": {
-        "title": "meta[property=og:title]@content",
-        "image": "meta[property=og:image]@content"
-      },
-      "episodes": {
-        "item": "tbody tr, div.htmlwrap.clearfix select[name='Sequel_select'] option",
-        "url": [
-          "td a@href",
-          "@value"
+  "id": "movie24hd",
+  "logo": "",
+  "name": "24HD",
+  "domain": "www.24-hdc.com",
+  "categories": [
+    {
+      "id": "cat_1314859596059",
+      "path": "/",
+      "title": "หนังออนไลน์"
+    },
+    {
+      "id": "cat_8611098134462",
+      "path": "/หนังใหม่-2026/",
+      "title": "หนังใหม่-2026"
+    },
+    {
+      "id": "cat_7468327399272",
+      "path": "/หนังใหม่-2025/",
+      "title": "หนังใหม่-2025"
+    },
+    {
+      "id": "cat_8488012579748",
+      "path": "/หนังใหม่-2024/",
+      "title": "หนังใหม่-2024"
+    },
+    {
+      "id": "cat_5539385363047",
+      "path": "/marvel-universe/",
+      "title": "หนัง Marvel Universe"
+    },
+    {
+      "id": "cat_1131198557564",
+      "path": "/หนังชนโรง/",
+      "title": "หนังชนโรง"
+    },
+    {
+      "id": "cat_5672703734208",
+      "path": "/หนังไทย/",
+      "title": "หนังไทย"
+    },
+    {
+      "id": "cat_5084937629708",
+      "path": "/dc-universe/",
+      "title": "หนัง DC Universe"
+    },
+    {
+      "id": "cat_7990200419913",
+      "path": "/netflix/",
+      "title": "หนัง NETFLIX"
+    }
+  ],
+  "home_page": "/",
+  "search": "https://{domain}/search_movie?keyword={keyword}",
+  "list": {
+    "item": "div.box",
+    "link": "a@href",
+    "title": "div.p2@text",
+    "image": "img@data-lazy-src|src",
+    "subtitle": "div.p1@text"
+  },
+  "pagination": {
+    "link": "a.page-numbers:not(.prev):not(.next)",
+    "active": "span.page-numbers.current"
+  },
+  "detail": {
+    "title": "meta[property=og:title]@content",
+    "image": "meta[property=og:image]@content"
+  },
+  "episodes": {
+    "item": "li.halim-episode span.halim-btn[data-episode], li.halim-episode span.halim-btn",
+    "title": "@data-episode|@data-title|text",
+    "number": "@data-episode",
+    "url_template": "{page_url}?episode={n}",
+    "number_regex": "(\\d+)",
+    "order": "asc"
+  },
+  "scheme": "https",
+  "video": {
+    "steps": [
+      {
+        "do": "regex",
+        "from": "page_html",
+        "patterns": [
+          "(?:var\\s+(?:halim_nonce|ajax_nonce|nonce)\\s*=\\s*['\\\"])([^'\\\"]+)",
+          "['\\\"]?nonce['\\\"]?\\s*[:=]\\s*['\\\"]([^'\\\"]+)['\\\"]"
         ],
-        "title": [
-          "td a@text",
-          "@text"
-        ],
-        "number_regex": "(?:EP\\.?\\s*|Episode\\s*|ตอน(?:ที่)?\\s*)(\\d+)",
-        "order": "asc"
+        "group": 1,
+        "as": "nonce_regex",
+        "optional": true
       },
-      "scheme": "https",
-      "video": {
-        "steps": [
-          {
-            "do": "regex",
-            "from": "page_html",
-            "pattern": "(?:var\\s+halim_nonce\\s*=\\s*['\\\"]|\\\"nonce\\\"\\s*:\\s*['\\\"])([^'\\\"]+)",
-            "group": 1,
-            "as": "nonce",
-            "optional": true
-          },
-          {
-            "do": "css",
-            "from": "page_html",
-            "sel": [
-              "span.halim-btn.active@data-post-id",
-              "span.halim-btn@data-post-id"
-            ],
-            "as": "post_id",
-            "optional": true
-          },
-          {
-            "do": "first_non_empty",
-            "vars": [
-              "post_id"
-            ],
-            "default": "",
-            "as": "post_id"
-          },
-          {
-            "do": "css",
-            "from": "page_html",
-            "sel": [
-              "span.halim-btn.active@data-episode",
-              "span.halim-btn@data-episode"
-            ],
-            "as": "episode",
-            "optional": true
-          },
-          {
-            "do": "first_non_empty",
-            "vars": [
-              "episode"
-            ],
-            "default": "0",
-            "as": "episode"
-          },
-          {
-            "do": "first_non_empty",
-            "vars": [
-              "nonce"
-            ],
-            "default": "",
-            "as": "nonce"
-          },
-          {
-            "do": "css",
-            "from": "page_html",
-            "sel": [
-              "span.halim-btn.active@data-server",
-              "span.halim-btn@data-server"
-            ],
-            "as": "server_dom",
-            "optional": true
-          },
-          {
-            "do": "first_non_empty",
-            "vars": [
-              "server_dom"
-            ],
-            "default": "1",
-            "as": "server"
-          },
-          {
-            "do": "css",
-            "from": "page_html",
-            "sel": "#Lang_select option[selected]@value|text",
-            "as": "lang",
-            "optional": true
-          },
-          {
-            "do": "first_non_empty",
-            "vars": [
-              "lang"
-            ],
-            "default": "Sound Track",
-            "as": "lang"
-          },
-          {
-            "do": "require",
-            "var": "post_id",
-            "message": "ไม่พบ post_id ในปุ่ม Player ของหน้าตอนนี้"
-          },
-          {
-            "do": "require",
-            "var": "nonce",
-            "message": "ไม่พบ nonce/type สำหรับ Player API"
-          },
-          {
-            "do": "require",
-            "var": "episode",
-            "message": "ไม่พบรหัสตอนสำหรับ Player API"
-          },
-          {
-            "do": "fetch",
-            "url": "{base}/api/get.php",
-            "method": "POST",
-            "referer": "{referer}",
-            "headers": {
-              "User-Agent": "{ua}",
-              "Referer": "{referer}",
-              "Origin": "{base}",
-              "X-Requested-With": "XMLHttpRequest"
-            },
-            "form": {
-              "action": "halim_ajax_player",
-              "nonce": "{nonce}",
-              "episode": "{episode}",
-              "postid": "{post_id}",
-              "server": "{server}",
-              "lang": "{lang}"
-            },
-            "as": "player_response"
-          },
-          {
-            "do": "replace",
-            "from": "player_response",
-            "find": "\\\\/",
-            "with": "/",
-            "as": "player_unescaped"
-          },
-          {
-            "do": "regex",
-            "from": "player_unescaped",
-            "patterns": [
-              "(https?://[^\\s\\\"'<>]+?\\.(?:m3u8|mp4)(?:\\?[^\\s\\\"'<>]*)?)",
-              "<iframe[^>]+src\\s*=\\s*['\\\"]([^'\\\"]+)['\\\"]"
-            ],
-            "group": 1,
-            "as": "player_url",
-            "optional": true
-          },
-          {
-            "do": "if",
-            "var": "player_url",
-            "matches": "\\.(?:m3u8|mp4)(?:[?#]|$)",
-            "then": [
-              {
-                "do": "return",
-                "value": "{player_url}"
-              }
-            ]
-          },
-          {
-            "do": "require",
-            "var": "player_url",
-            "message": "API ไม่ส่ง iframe หรือ media URL กลับมา"
-          },
-          {
-            "do": "regex",
-            "from": "player_url",
-            "pattern": "(?:[?&]id=)([^&]+)",
-            "group": 1,
-            "as": "playlist_id",
-            "optional": true
-          },
-          {
-            "do": "require",
-            "var": "playlist_id",
-            "message": "ไม่พบ id ใน URL ของ iframe Player"
-          },
+      {
+        "do": "css",
+        "from": "page_html",
+        "sel": [
+          "span.halim-btn.active@data-post-id",
+          "span.halim-btn@data-post-id",
+          "[data-post-id]@data-post-id"
+        ],
+        "as": "post_id_dom",
+        "optional": true
+      },
+      {
+        "do": "regex",
+        "from": "page_html",
+        "pattern": "(?:post[_-]?id|postid|postID)[^0-9]{0,16}([0-9]{3,})",
+        "group": 1,
+        "as": "post_id_regex",
+        "optional": true
+      },
+      {
+        "do": "css",
+        "from": "page_html",
+        "sel": [
+          "span.halim-btn.active@data-episode",
+          "span.halim-btn@data-episode"
+        ],
+        "as": "episode_dom",
+        "optional": true
+      },
+      {
+        "do": "first_non_empty",
+        "vars": [
+          "q_episode",
+          "q_episode-id",
+          "q_episode_id",
+          "episode_number",
+          "episode_dom"
+        ],
+        "default": "1",
+        "as": "episode"
+      },
+      {
+        "do": "first_non_empty",
+        "vars": [
+          "nonce_regex"
+        ],
+        "default": "",
+        "as": "nonce"
+      },
+      {
+        "do": "first_non_empty",
+        "vars": [
+          "post_id_dom",
+          "post_id_regex"
+        ],
+        "default": "",
+        "as": "post_id"
+      },
+      {
+        "do": "first_non_empty",
+        "vars": [
+          "server"
+        ],
+        "default": "1",
+        "as": "server"
+      },
+      {
+        "do": "css",
+        "from": "page_html",
+        "sel": "#Lang_select option[selected]@value|text",
+        "as": "lang",
+        "optional": true
+      },
+      {
+        "do": "first_non_empty",
+        "vars": [
+          "lang"
+        ],
+        "default": "Sound Track",
+        "as": "lang"
+      },
+      {
+        "do": "require",
+        "var": "post_id",
+        "message": "ไม่พบ post_id ในหน้า Player"
+      },
+      {
+        "do": "require",
+        "var": "nonce",
+        "message": "ไม่พบ nonce/type สำหรับ Player API"
+      },
+      {
+        "do": "require",
+        "var": "episode",
+        "message": "ไม่พบรหัสตอนสำหรับ Player API"
+      },
+      {
+        "do": "fetch",
+        "url": "https://api.24-hdc.com/get.php",
+        "method": "POST",
+        "referer": "{referer}",
+        "headers": {
+          "User-Agent": "{ua}",
+          "Referer": "{referer}",
+          "Origin": "{base}",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "form": {
+          "action": "halim_ajax_player",
+          "nonce": "{nonce}",
+          "episode": "{episode}",
+          "postid": "{post_id}",
+          "server": "{server}",
+          "lang": "{lang}"
+        },
+        "as": "player_response"
+      },
+      {
+        "do": "replace",
+        "from": "player_response",
+        "find": "\\\\/",
+        "with": "/",
+        "as": "player_unescaped"
+      },
+      {
+        "do": "regex",
+        "from": "player_unescaped",
+        "patterns": [
+          "(https?://[^\\s\"\\'<>]+?\\.(?:m3u8|mp4)(?:\\?[^\\s\"\\'<>]*)?)",
+          "<iframe[^>]+src\\s*=\\s*['\\\"]([^'\\\"]+)['\\\"]",
+          "(https?://main\\.24playerhd\\.com/[^\\s\"\\'<>]+)"
+        ],
+        "group": 1,
+        "as": "player_url",
+        "optional": true
+      },
+      {
+        "do": "if",
+        "var": "player_url",
+        "matches": "\\.(?:m3u8|mp4)(?:[?#]|$)",
+        "then": [
           {
             "do": "return",
-            "value": "https://main.24playerhd.com/newplaylist/{playlist_id}/{playlist_id}.m3u8"
+            "value": "{player_url}"
           }
+        ]
+      },
+      {
+        "do": "require",
+        "var": "player_url",
+        "message": "API ไม่ส่ง iframe หรือ media URL กลับมา"
+      },
+      {
+        "do": "regex",
+        "from": "player_url",
+        "pattern": "(?:[?&]id=)([^&]+)",
+        "group": 1,
+        "as": "playlist_id",
+        "optional": true
+      },
+      {
+        "do": "require",
+        "var": "playlist_id",
+        "message": "ไม่พบ id ใน URL ของ iframe Player"
+      },
+      {
+        "do": "return",
+        "value": "https://main.24playerhd.com/newplaylist/{playlist_id}/{playlist_id}.m3u8"
+      }
+    ]
+  }
+}
         ]
       }
     }
