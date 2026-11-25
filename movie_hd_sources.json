@@ -98,8 +98,14 @@
       },
       "episodes": {
         "item": "tbody tr, div.htmlwrap.clearfix select[name='Sequel_select'] option",
-        "url": "td a@href|@value",
-        "title": "td a@text|@text",
+        "url": [
+          "td a@href",
+          "@value"
+        ],
+        "title": [
+          "td a@text",
+          "@text"
+        ],
         "number_regex": "(?:EP\\.?\\s*|Episode\\s*|ตอน(?:ที่)?\\s*)(\\d+)",
         "order": "asc"
       },
