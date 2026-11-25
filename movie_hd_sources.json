@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "MOVIE HD online source - Animemoji only. Migrated from the user's legacy Animemoji parser settings.",
+  "description": "MOVIE HD online source.",
   "stream_rules": [],
   "sources": [
     {
@@ -105,6 +105,482 @@
           }
         ]
       }
+    },
+    {
+      "id": "seriesday",
+      "logo": "",
+      "name": "SeriesDay",
+      "domain": "www.serieday-z.com",
+      "categories": [
+        {
+          "id": "cat_8053465873256",
+          "path": "/ซีรี่ย์พากย์ไทย/",
+          "title": "ซีรี่ย์พากย์ไทย"
+        },
+        {
+          "id": "cat_4901410356620",
+          "path": "/ซีรี่ย์จีน/",
+          "title": "ซีรี่ย์จีน"
+        },
+        {
+          "id": "cat_4324188088519",
+          "path": "/ซีรี่ย์เกาหลี/",
+          "title": "ซีรี่ย์เกาหลี"
+        },
+        {
+          "id": "cat_7662271003976",
+          "path": "/ซีรี่ย์ฝรั่ง/",
+          "title": "ซีรี่ย์ฝรั่ง"
+        },
+        {
+          "id": "cat_3149649071734",
+          "path": "/ซีรี่ย์ญี่ปุ่น/",
+          "title": "ซีรี่ย์ญี่ปุ่น"
+        },
+        {
+          "id": "cat_8601779146084",
+          "path": "/ซีรี่ย์ไทย/",
+          "title": "ซีรี่ย์ไทย"
+        },
+        {
+          "id": "cat_9848126235729",
+          "path": "/ซีรี่ย์ใหม่-2025/",
+          "title": "ซีรี่ย์ใหม่"
+        },
+        {
+          "id": "cat_3415606484177",
+          "path": "/netflix/",
+          "title": "Netflix"
+        },
+        {
+          "id": "cat_8211635425365",
+          "path": "/iqiyi/",
+          "title": "ซีรี่ย์ IQIYI"
+        },
+        {
+          "id": "cat_9812857770616",
+          "path": "/wetv/",
+          "title": "ซีรี่ย์ WETV"
+        },
+        {
+          "id": "cat_5348164020133",
+          "path": "/youku/",
+          "title": "ซีรี่ย์ YOUKU"
+        },
+        {
+          "id": "cat_4338240696077",
+          "path": "/viu/",
+          "title": "ซีรี่ย์ VIU"
+        },
+        {
+          "id": "cat_3366363022451",
+          "path": "/hbo/",
+          "title": "ซีรี่ย์ HBO"
+        },
+        {
+          "id": "cat_4342902653988",
+          "path": "/apple-tv/",
+          "title": "ซีรี่ย์ APPLE+"
+        },
+        {
+          "id": "cat_5429010360343",
+          "path": "/disney-plus/",
+          "title": "ซีรี่ย์ DISNEY+"
+        },
+        {
+          "id": "cat_1726817010311",
+          "path": "/amazon-prime-video/",
+          "title": "ซีรี่ย์ AmazonPrime"
+        }
+      ],
+      "home_page": "/ซีรี่ย์จีน/",
+      "search": "https://{domain}/search_movie/?keyword={keyword}",
+      "list": {
+        "item": "div.grid-movie > div.box",
+        "link": "a@href",
+        "title": ".p-box .p2@text",
+        "image": ".box-img img@data-lazy-src|src",
+        "subtitle": ".p-box .p1@text"
+      },
+      "pagination": {
+        "link": ".pagination a.page-numbers:not(.next):not(.prev)",
+        "active": "span.current"
+      },
+      "detail": {
+        "title": "meta[property=og:title]@content",
+        "image": "meta[property=og:image]@content"
+      },
+      "episodes": {
+        "item": "select[name=Sequel_select] option",
+        "url": "@value",
+        "title": "@text",
+        "number_regex": "(\\d+)",
+        "order": "asc"
+      },
+      "scheme": "https",
+      "video": {
+        "steps": [
+          {
+            "do": "css",
+            "from": "page_html",
+            "sel": "span.halim-btn.halim-btn-2.active.halim-info-2-1.box-shadow@data-post-id",
+            "as": "post_id",
+            "optional": true
+          },
+          {
+            "do": "css",
+            "from": "page_html",
+            "sel": "span.halim-btn.halim-btn-2.active.halim-info-2-1.box-shadow@data-server",
+            "as": "server",
+            "optional": true
+          },
+          {
+            "do": "css",
+            "from": "page_html",
+            "sel": "span.halim-btn.halim-btn-2.active.halim-info-2-1.box-shadow@data-type",
+            "as": "nonce",
+            "optional": true
+          },
+          {
+            "do": "first_non_empty",
+            "vars": [
+              "q_episode",
+              "q_episode-id",
+              "q_episode_id",
+              "episode_number"
+            ],
+            "as": "episode"
+          },
+          {
+            "do": "first_non_empty",
+            "vars": [
+              "nonce"
+            ],
+            "default": "",
+            "as": "nonce"
+          },
+          {
+            "do": "first_non_empty",
+            "vars": [
+              "post_id"
+            ],
+            "default": "",
+            "as": "post_id"
+          },
+          {
+            "do": "first_non_empty",
+            "vars": [
+              "server"
+            ],
+            "default": "3",
+            "as": "server"
+          },
+          {
+            "do": "css",
+            "from": "page_html",
+            "sel": "#Lang_select option[selected]@value|text",
+            "as": "lang",
+            "optional": true
+          },
+          {
+            "do": "first_non_empty",
+            "vars": [
+              "lang"
+            ],
+            "default": "Thai",
+            "as": "lang"
+          },
+          {
+            "do": "require",
+            "var": "post_id",
+            "message": "ไม่พบ post_id ในหน้า Player"
+          },
+          {
+            "do": "require",
+            "var": "nonce",
+            "message": "ไม่พบ nonce/type สำหรับ Player API"
+          },
+          {
+            "do": "require",
+            "var": "episode",
+            "message": "ไม่พบรหัสตอนสำหรับ Player API"
+          },
+          {
+            "do": "fetch",
+            "url": "{base}/api/get.php",
+            "method": "POST",
+            "referer": "{referer}",
+            "headers": {
+              "User-Agent": "{ua}",
+              "Referer": "{referer}",
+              "Origin": "{base}",
+              "X-Requested-With": "XMLHttpRequest"
+            },
+            "form": {
+              "action": "halim_ajax_player",
+              "nonce": "{nonce}",
+              "episode": "{episode}",
+              "postid": "{post_id}",
+              "server": "{server}",
+              "lang": "{lang}"
+            },
+            "as": "player_response"
+          },
+          {
+            "do": "replace",
+            "from": "player_response",
+            "find": "\\\\/",
+            "with": "/",
+            "as": "player_unescaped"
+          },
+          {
+            "do": "regex",
+            "from": "player_unescaped",
+            "patterns": [
+              "(https?://[^\\s\"\\'<>]+?\\.(?:m3u8|mp4)(?:\\?[^\\s\"\\'<>]*)?)",
+              "<iframe[^>]+src\\s*=\\s*[\\'\\\"]([^\\'\\\"]+)[\\'\\\"]"
+            ],
+            "group": 1,
+            "as": "player_url",
+            "optional": true
+          },
+          {
+            "do": "if",
+            "var": "player_url",
+            "matches": "\\.(?:m3u8|mp4)(?:[?#]|$)",
+            "then": [
+              {
+                "do": "return",
+                "value": "{player_url}"
+              }
+            ]
+          },
+          {
+            "do": "require",
+            "var": "player_url",
+            "message": "API ไม่ส่ง iframe หรือ media URL กลับมา"
+          },
+          {
+            "do": "regex",
+            "from": "player_url",
+            "pattern": "(?:[?&]id=)([^&]+)",
+            "group": 1,
+            "as": "playlist_id",
+            "optional": true
+          },
+          {
+            "do": "require",
+            "var": "playlist_id",
+            "message": "ไม่พบ id ใน URL ของ iframe Player"
+          },
+          {
+            "do": "return",
+            "value": "https://main.24playerhd.com/newplaylist/{playlist_id}/{playlist_id}.m3u8"
+          }
+        ]
+      }
     }
+  ]
+},
+{
+      "id": "watchlakorn",
+      "logo": "",
+      "name": "Watch Lakorn",
+      "domain": "www.watchlakorn.org",
+      "categories": [
+        {
+          "id": "cat_2523374036656",
+          "path": "/api.php?action=get_latest&page=1",
+          "title": "อัพเดทล่าสุด"
+        },
+        {
+          "id": "cat_3504611002743",
+          "path": "/api.php?action=get_all&page=1&group=2",
+          "title": "ละคร"
+        },
+        {
+          "id": "cat_5271533342768",
+          "path": "/api.php?action=get_all&page=1&group=15",
+          "title": "ซีรีย์เอเซีย"
+        },
+        {
+          "id": "cat_8195439644477",
+          "path": "/api.php?action=get_all&page=1&group=6",
+          "title": "ซีรี่ย์ต่างประเทศ"
+        },
+        {
+          "id": "cat_1198610085931",
+          "path": "/api.php?action=get_all&page=1&group=7",
+          "title": "ภาพยนต์"
+        },
+        {
+          "id": "cat_4624126226110",
+          "path": "/api.php?action=get_all&page=1&group=16",
+          "title": "BL & GL"
+        },
+        {
+          "id": "cat_8221405602363",
+          "path": "/api.php?action=get_all&page=1&group=3",
+          "title": "ซิทคอม"
+        },
+        {
+          "id": "cat_7906751399013",
+          "path": "/api.php?action=get_all&page=1&group=4",
+          "title": "วาไรตี้"
+        },
+        {
+          "id": "cat_5733586970727",
+          "path": "/api.php?action=get_all&page=1&group=5",
+          "title": "เรียลลิตี้"
+        },
+        {
+          "id": "cat_6590235960131",
+          "path": "/api.php?action=get_all&page=1&group=9",
+          "title": "ละครเก่า"
+        },
+        {
+          "id": "cat_1374829601444",
+          "path": "/api.php?action=get_all&page=1&group=11",
+          "title": "สารคดี"
+        },
+        {
+          "id": "cat_3705285075700",
+          "path": "/api.php?action=get_all&page=1&group=14",
+          "title": "กีฬา"
+        },
+        {
+          "id": "cat_3029454809187",
+          "path": "/api.php?action=get_all&page=1&group=1",
+          "title": "ข่าว"
+        }
+      ],
+      "home_page": "/api.php?action=get_latest&page=1",
+      "search": "https://{domain}/api.php?action=search&q={keyword}",
+      "list": {
+        "format": "json",
+        "items": "items",
+        "title": "{title}",
+        "url": "https://{domain}/api.php?action=get_series_detail&id={category_id}&category_id={category_id}&page=1",
+        "image": "{image}",
+        "latest_episode": "ตอน {total_episodes}"
+      },
+      "pagination": {
+        "total_pages": "total_pages",
+        "param": "page"
+      },
+      "detail": {
+        "title": [
+          "meta[property=og:title]@content",
+          "h1@text",
+          "title@text"
+        ],
+        "image": [
+          "meta[property=og:image]@content",
+          "img@src"
+        ]
+      },
+      "episodes": {
+        "mode": "steps",
+        "steps": [
+          {
+            "do": "fetch",
+            "url": "{page_url}",
+            "referer": "{base}/",
+            "as": "episodes_json"
+          }
+        ],
+        "items_from": "episodes_json",
+        "items_paths": [
+          "episodes"
+        ],
+        "number": "{episode}",
+        "title": "{episode_display}",
+        "title_template": "ตอนที่ {n}",
+        "url": "https://{domain}/api.php?action=get_player&id={id}"
+      },
+      "scheme": "https",
+      "video": {
+        "steps": [
+          {
+            "do": "fetch",
+            "url": "{page_url}",
+            "referer": "{referer}",
+            "as": "player_json"
+          },
+          {
+            "do": "json",
+            "from": "player_json",
+            "paths": [
+              "video.stream_url",
+              "video.playlist_url",
+              "video.playlist",
+              "stream_url",
+              "playlist_url",
+              "playlist"
+            ],
+            "as": "stream_url",
+            "optional": true
+          },
+          {
+            "do": "require",
+            "var": "stream_url",
+            "message": "Watch Lakorn API ไม่มี stream_url/playlist"
+          },
+          {
+            "do": "url",
+            "action": "resolve",
+            "from": "stream_url",
+            "as": "stream_absolute",
+            "base": "{base}"
+          },
+          {
+            "do": "if",
+            "var": "stream_absolute",
+            "matches": "content_jw6\\.php|content_jw",
+            "then": [
+              {
+                "do": "fetch",
+                "url": "{stream_absolute}",
+                "referer": "{referer}",
+                "as": "jw_playlist_json"
+              },
+              {
+                "do": "json",
+                "from": "jw_playlist_json",
+                "paths": [
+                  "[0].file",
+                  "0.file",
+                  "file"
+                ],
+                "as": "jw_file",
+                "optional": true
+              },
+              {
+                "do": "require",
+                "var": "jw_file",
+                "message": "JW playlist ไม่พบ file URL"
+              },
+              {
+                "do": "url",
+                "action": "resolve",
+                "from": "jw_file",
+                "as": "jw_absolute",
+                "base": "{stream_absolute}"
+              },
+              {
+                "do": "return",
+                "value": "{jw_absolute}"
+              }
+            ]
+          },
+          {
+            "do": "return",
+            "value": "{stream_absolute}"
+          }
+        ]
+      }
+    }
+  ]
+}
   ]
 }
