@@ -9,6 +9,7 @@
   ],
   "sources": [
     {
+  {
   "id": "movie24hd",
   "logo": "",
   "name": "24HD",
@@ -92,12 +93,45 @@
         "do": "regex",
         "from": "page_html",
         "patterns": [
+          "ajax_player\\s*\\.\\s*nonce\\s*=\\s*['\\\"]([^'\\\"]+)['\\\"]",
+          "ajax_player[\"']?\\s*[:=]\\s*\\{[^}]*[\"']?nonce[\"']?\\s*[:=]\\s*['\\\"]([^'\\\"]+)['\\\"]",
           "(?:var\\s+(?:halim_nonce|ajax_nonce|nonce)\\s*=\\s*['\\\"])([^'\\\"]+)",
           "['\\\"]?nonce['\\\"]?\\s*[:=]\\s*['\\\"]([a-zA-Z0-9_-]+)['\\\"]"
         ],
         "group": 1,
         "as": "nonce_regex",
         "optional": true
+      },
+      {
+        "do": "regex",
+        "from": "page_html",
+        "patterns": [
+          "halim_cfg\\s*\\.\\s*post_title\\s*=\\s*['\\\"]([^'\\\"]*)['\\\"]",
+          "halim_cfg[\"']?\\s*[:=]\\s*\\{[^}]*[\"']?post_title[\"']?\\s*[:=]\\s*['\\\"]([^'\\\"]*)['\\\"]"
+        ],
+        "group": 1,
+        "as": "title_cfg",
+        "optional": true
+      },
+      {
+        "do": "css",
+        "from": "page_html",
+        "sel": [
+          "span.halim-btn.active@data-title",
+          "span.halim-btn@data-title",
+          "meta[property=og:title]@content"
+        ],
+        "as": "title_dom",
+        "optional": true
+      },
+      {
+        "do": "first_non_empty",
+        "vars": [
+          "title_cfg",
+          "title_dom"
+        ],
+        "default": "",
+        "as": "title"
       },
       {
         "do": "css",
@@ -113,7 +147,10 @@
       {
         "do": "regex",
         "from": "page_html",
-        "pattern": "(?:post[_-]?id|postid|postID)[^0-9]{0,16}([0-9]{3,})",
+        "patterns": [
+          "halim_cfg\\s*\\.\\s*post_id\\s*=\\s*['\\\"]?([0-9]+)['\\\"]?",
+          "(?:post[_-]?id|postid|postID)[^0-9]{0,16}([0-9]{3,})"
+        ],
         "group": 1,
         "as": "post_id_regex",
         "optional": true
@@ -129,13 +166,22 @@
         "optional": true
       },
       {
+        "do": "regex",
+        "from": "page_html",
+        "pattern": "halim_cfg\\s*\\.\\s*episode\\s*=\\s*['\\\"]?([0-9]+)['\\\"]?",
+        "group": 1,
+        "as": "episode_cfg",
+        "optional": true
+      },
+      {
         "do": "first_non_empty",
         "vars": [
           "q_episode",
           "q_episode-id",
           "q_episode_id",
           "episode_number",
-          "episode_dom"
+          "episode_dom",
+          "episode_cfg"
         ],
         "default": "1",
         "as": "episode"
@@ -158,9 +204,18 @@
         "as": "post_id"
       },
       {
+        "do": "regex",
+        "from": "page_html",
+        "pattern": "halim_cfg\\s*\\.\\s*server\\s*=\\s*['\\\"]?([0-9]+)['\\\"]?",
+        "group": 1,
+        "as": "server_cfg",
+        "optional": true
+      },
+      {
         "do": "first_non_empty",
         "vars": [
-          "server"
+          "server",
+          "server_cfg"
         ],
         "default": "1",
         "as": "server"
@@ -212,7 +267,8 @@
           "episode": "{episode}",
           "postid": "{post_id}",
           "server": "{server}",
-          "lang": "{lang}"
+          "lang": "{lang}",
+          "title": "{title}"
         },
         "as": "player_response"
       },
