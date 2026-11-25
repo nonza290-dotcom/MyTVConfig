@@ -78,8 +78,8 @@
     "image": "meta[property=og:image]@content"
   },
   "episodes": {
-    "item": "li.halim-episode span.halim-btn[data-episode], li.halim-episode span.halim-btn",
-    "title": "@data-episode|@data-title|text",
+    "item": "li.halim-episode span.halim-btn[data-episode]",
+    "title": "@data-title|text",
     "number": "@data-episode",
     "url_template": "{page_url}?episode={n}",
     "number_regex": "(\\d+)",
@@ -93,7 +93,7 @@
         "from": "page_html",
         "patterns": [
           "(?:var\\s+(?:halim_nonce|ajax_nonce|nonce)\\s*=\\s*['\\\"])([^'\\\"]+)",
-          "['\\\"]?nonce['\\\"]?\\s*[:=]\\s*['\\\"]([^'\\\"]+)['\\\"]"
+          "['\\\"]?nonce['\\\"]?\\s*[:=]\\s*['\\\"]([a-zA-Z0-9_-]+)['\\\"]"
         ],
         "group": 1,
         "as": "nonce_regex",
@@ -177,7 +177,7 @@
         "vars": [
           "lang"
         ],
-        "default": "Sound Track",
+        "default": "Thai",
         "as": "lang"
       },
       {
@@ -271,7 +271,7 @@
     ]
   }
 }
-        ]
-      }
-    
+    ]
+  }
+
   
