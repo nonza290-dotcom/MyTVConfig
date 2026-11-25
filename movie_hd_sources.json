@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "MOVIE HD online source - 123HDD test.",
+  "description": "MOVIE HD online source - 123HDD episode selector test.",
   "stream_rules": [
     {
       "match": "main.24playerhd.com",
@@ -17,82 +17,76 @@
         {
           "id": "cat_1255438103477",
           "path": "/ซีรี่ย์ใหม่-2026-2",
-          "title": "[ซีรี่ย์] ซีรี่ย์ใหม่ 2026"
-        },
-        {
-          "id": "cat_8078346280463",
-          "path": "/ซีรี่ย์ใหม่-2025/",
-          "title": "[ซีรี่ย์] ซีรี่ย์ใหม่ 2025"
-        },
-        {
-          "id": "cat_9472807381251",
-          "path": "/ซีรี่ย์จีน-พากย์ไทย/",
-          "title": "[ซีรี่ย์] ซีรี่ย์จีนพากย์ไทย"
-        },
-        {
-          "id": "cat_3638456653745",
-          "path": "/ดูซีรี่ย์จีน/",
-          "title": "[ซีรี่ย์] ซีรี่ย์จีน"
-        },
-        {
-          "id": "cat_7684858491179",
-          "path": "/ซีรี่ย์เกาหลีพากย์ไทย/",
-          "title": "[ซีรี่ย์] ซีรี่ย์เกาหลีพากย์ไทย"
-        },
-        {
-          "id": "cat_9789017936809",
-          "path": "/ดูซีรี่ย์เกาหลี/",
-          "title": "[ซีรี่ย์] ซีรี่ย์เกาหลี"
-        },
-        {
-          "id": "cat_4816756590816",
-          "path": "/ดูซีรี่ย์ฝรั่ง/ซีรี่ย์ฝรั่ง-พากย์ไทย/",
-          "title": "[ซีรี่ย์] ซีรี่ย์ฝรั่งพากย์ไทย"
-        },
-        {
-          "id": "cat_4772903380718",
-          "path": "/ซีรี่ย์ไทย/",
-          "title": "[ซีรี่ย์] ซีรี่ย์ไทย"
+          "title": "ซีรี่ย์ใหม่-2026"
         },
         {
           "id": "cat_3613660145641",
           "path": "/หนังใหม่-2026",
-          "title": "[หนัง] หนังใหม่ 2026"
+          "title": "หนังออนไลน์"
         },
         {
           "id": "cat_4319697004285",
           "path": "/หนังใหม่-2025",
-          "title": "[หนัง] หนังใหม่ 2025"
+          "title": "หนังใหม่-2025"
         },
         {
           "id": "cat_1558491116560",
           "path": "/หนังใหม่-2024",
-          "title": "[หนัง] หนังใหม่ 2024"
+          "title": "หนังใหม่-2024"
+        },
+        {
+          "id": "cat_5788607265412",
+          "path": "/หนังใหม่-2023",
+          "title": "หนังใหม่-2023"
+        },
+        {
+          "id": "cat_9390776775802",
+          "path": "/หนังใหม่-2022",
+          "title": "หนังใหม่-2022"
+        },
+        {
+          "id": "cat_4985844710710",
+          "path": "/หนังใหม่-2021",
+          "title": "หนังใหม่-2021"
+        },
+        {
+          "id": "cat_2735327473780",
+          "path": "/หนังใหม่-2020",
+          "title": "หนังใหม่-2020"
         },
         {
           "id": "cat_4693904241508",
           "path": "/ดูหนังออนไลน์/หนังไทย",
-          "title": "[หนัง] หนังไทย"
+          "title": "หนังไทย"
+        },
+        {
+          "id": "cat_6234827185576",
+          "path": "/ดูซีรี่ย์ออนไลน์/ซีรี่ย์ใหม่-2025",
+          "title": "ซีรี่ย์ใหม่ 2025"
+        },
+        {
+          "id": "cat_4395352625760",
+          "path": "/ดูซีรี่ย์ออนไลน์/ซีรี่ย์ใหม่-2023",
+          "title": "ซีรี่ย์ใหม่ 2023"
         },
         {
           "id": "cat_8830180811656",
           "path": "/หนังการ์ตูน/anime-อนิเมะ",
-          "title": "[อนิเมะ] Anime ดูอนิเมะ"
+          "title": "Anime ดูอนิเมะ"
         },
         {
           "id": "cat_7728811824597",
           "path": "/หนังการ์ตูน/animation",
-          "title": "[การ์ตูน] Animation อนิเมชั่น"
+          "title": "Animation อนิเมชั่น"
         }
       ],
-      "home_page": "/ซีรี่ย์ใหม่-2026-2",
+      "home_page": "/",
       "search": "https://{domain}/?s={keyword}",
       "list": {
         "item": "article.halim-item, div.halim-item, [class*=halim-item]",
         "link": "a.halim-thumb@href",
         "title": "h2.entry-title@text",
-        "image": "img.lazyload@data-src|src",
-        "subtitle": ".episode@text, .halim-episode@text, span.label@text, span.badge@text"
+        "image": "img.lazyload@data-src|src"
       },
       "pagination": {
         "link": "ul.page-numbers a.page-numbers:not(.prev):not(.next)",
@@ -103,13 +97,12 @@
         "image": "meta[property=og:image]@content"
       },
       "episodes": {
-        "item": "div.list-eps-ajax li.halim-episode span.halim-btn, li.halim-episode span.halim-btn, table tr a[href*='ep'], table tr a[href*='episode'], table tr a[href*='ตอน'], .episode-list a, .ep-list a, a[href*='?ep=']",
+        "item": "div.list-eps-ajax li.halim-episode span.halim-btn, li.halim-episode span.halim-btn, table tr a, ul li a[href*='ep'], div[class*='ep'] a, div[class*='episode'] a",
         "url": "@href",
         "title": "@data-title|@data-episode|@title|text",
         "number": "@data-episode",
         "url_template": "{page_url}?episode={n}",
         "number_regex": "(?:EP\\.?|Episode|ตอน(?:ที่)?)\\s*(\\d+)|(\\d+)",
-        "title_template": "ตอนที่ {n}",
         "order": "asc"
       },
       "scheme": "https",
@@ -158,9 +151,19 @@
             "as": "post_id"
           },
           {
+            "do": "css",
+            "from": "page_html",
+            "sel": [
+              "span.halim-btn.active@data-server",
+              "span.halim-btn@data-server"
+            ],
+            "as": "server_dom",
+            "optional": true
+          },
+          {
             "do": "first_non_empty",
             "vars": [
-              "server"
+              "server_dom"
             ],
             "default": "1",
             "as": "server"
@@ -272,3 +275,6 @@
     }
   ]
 }
+```[cite: 2]
+
+ลองทดสอบดูครับว่าตอนขึ้นไหม และวิดีโอยังเล่นได้ปกติอยู่หรือเปล่าครับ
