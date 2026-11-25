@@ -1,223 +1,108 @@
 {
-  "version": 7,
-  "description": "MovieHD Engine-Only Online JSON - 24HD (24-hdc.com) Video Fix",
-  "stream_rules": [
-    {
-      "match": "24playerhd\\.com|24-hdc\\.com",
-      "referer": "https://www.24-hdc.com/",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-        "Origin": "https://www.24-hdc.com"
-      }
-    }
-  ],
+  "version": 1,
+  "description": "MOVIE HD online source - Animemoji only. Migrated from the user's legacy Animemoji parser settings.",
+  "stream_rules": [],
   "sources": [
     {
-      "id": "movie24hd",
-      "name": "24HD",
-      "domain": "24-hdc.com",
-      "extra_domains": ["www.24-hdc.com", "24-hda.com"],
+      "id": "animemoji",
+      "name": "Animemoji",
+      "domain": "anime-moka.com",
       "scheme": "https",
-      "enabled": true,
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-        "Referer": "https://www.24-hdc.com/"
-      },
       "categories": [
-        { "id": "cat_1314859596059", "title": "เทส0", "path": "/" },
-        { "id": "cat_6171044715209", "title": "ดูซีรีย์", "path": "/series/" },
-        { "id": "cat_8611098134462", "title": "หนังใหม่-2026", "path": "/หนังใหม่-2026/" },
-        { "id": "cat_7468327399272", "title": "หนังใหม่-2025", "path": "/หนังใหม่-2025/" },
-        { "id": "cat_8488012579748", "title": "หนังใหม่-2024", "path": "/หนังใหม่-2024/" },
-        { "id": "cat_1131198557564", "title": "หนังชนโรง", "path": "/หนังชนโรง/" },
-        { "id": "cat_5672703734208", "title": "หนังไทย", "path": "/หนังไทย/" },
-        { "id": "cat_5539385363047", "title": "หนัง Marvel Universe", "path": "/marvel-universe/" },
-        { "id": "cat_5084937629708", "title": "หนัง DC Universe", "path": "/dc-universe/" },
-        { "id": "cat_7990200419913", "title": "หนัง NETFLIX", "path": "/netflix/" }
+        {
+          "id": "cat_9927899069725",
+          "path": "/",
+          "title": "หน้าแรก"
+        },
+        {
+          "id": "cat_3718727998127",
+          "path": "/category/anime-th/",
+          "title": "พากย์ไทย"
+        },
+        {
+          "id": "cat_2686906160052",
+          "path": "/category/category/subth/",
+          "title": "ซับไทย"
+        },
+        {
+          "id": "cat_4046471925124",
+          "path": "/category/china-no1/",
+          "title": "อนิเมะจีน"
+        },
+        {
+          "id": "cat_8068052694913",
+          "path": "/category/category/themovie/",
+          "title": "เดอะมูฟวี่"
+        },
+        {
+          "id": "cat_2606925305448",
+          "path": "/air/จบแล้ว/",
+          "title": "อนิเมะจบแล้ว"
+        },
+        {
+          "id": "cat_9870160029135",
+          "path": "/air/ยังไม่จบ/",
+          "title": "อนิเมะยังไม่จบ"
+        }
       ],
-      "search": "https://{domain}/search_movie?keyword={keyword}",
+      "search": "{base}/?s={keyword}",
       "list": {
-        "item": "div.grid-movie:nth-of-type(2) div.box, div.grid-movie div.box",
-        "link": "a@href",
-        "title": "div.p2",
-        "image": "img@data-lazy-src|src",
-        "subtitle": "div.p1"
+        "item": "article.ez-postthumb",
+        "link": "a.ez-pt-link@href",
+        "title": "a.ez-pt-link@title|text",
+        "image": "img@data-src|src|data-srcset",
+        "subtitle": "span.ez-index-tag@text",
+        "exclude_url": [
+          "/episode/",
+          "/tag/",
+          "/genre/",
+          "/category/",
+          "/page/"
+        ]
       },
       "pagination": {
-        "link": "nav.navigation.pagination a.page-numbers:not(.prev):not(.next)",
-        "active": "nav.navigation.pagination span.page-numbers.current"
+        "link": ".wp-pagenavi a.page, a.page-numbers, .pagination a, nav a[href*=/page/]",
+        "active": ".wp-pagenavi span.current, span.page-numbers.current, .pagination .current"
       },
       "detail": {
         "title": "meta[property=og:title]@content",
-        "image": "meta[property=og:image]@content"
+        "title_strip": [
+          "[-–]\\s*AnimeMoji.*$"
+        ],
+        "image": "div.post-thumnail.ez-p-thum.mx-auto img@data-src|src"
       },
       "episodes": {
-        "selector": "li.halim-episode span.halim-btn",
-        "title_template": "ตอนที่ {n}"
+        "item": "div.episode-b a",
+        "url": "@href",
+        "title": "@text",
+        "number_regex": "(?:ตอน(?:ที่)?|EP\\.?|Episode)\\s*(\\d+)",
+        "title_template": "ตอนที่ {n}",
+        "order": "asc"
       },
       "video": {
         "steps": [
-          { "do": "set", "name": "target_url", "value": "{episode_url}" },
           {
-            "do": "if",
-            "cond": "empty:target_url",
-            "then": [
-              { "do": "set", "name": "target_url", "value": "{url}" }
-            ]
-          },
-          { "do": "log", "message": "24HD target_url={target_url}" },
-          {
-            "do": "fetch",
-            "method": "GET",
-            "url": "{target_url}",
-            "headers": {
-              "Referer": "https://www.24-hdc.com/"
-            },
-            "into": "detail_html"
+            "do": "css",
+            "from": "page_html",
+            "sel": "iframe.perfmatters-lazy@data-src|src",
+            "as": "iframe_url"
           },
           {
             "do": "regex",
-            "from": "detail_html",
-            "patterns": [
-              "(?:var\\s+halim_nonce\\s*=\\s*['\"]|\"nonce\"\\s*:\\s*\")([a-f0-9]+)(?:['\"]|\")",
-              "nonce[\"']?\\s*[:=]\\s*[\"']([a-f0-9]+)[\"']"
-            ],
+            "from": "iframe_url",
+            "pattern": "embed\\d*/([^/?]+)",
             "group": 1,
-            "optional": true,
-            "into": "nonce"
+            "as": "video_id"
           },
           {
-            "do": "regex",
-            "from": "detail_html",
-            "patterns": [
-              "\"post_id\"\\s*:\\s*\"?(\\d+)\"?",
-              "data-post-id=[\"'](\\d+)[\"']",
-              "postid[\"']?\\s*[:=]\\s*[\"']?(\\d+)"
-            ],
-            "group": 1,
-            "optional": true,
-            "into": "post_id"
+            "do": "require",
+            "var": "video_id",
+            "message": "ไม่พบรหัสวิดีโอจาก iframe ของ Animemoji"
           },
           {
-            "do": "regex",
-            "from": "detail_html",
-            "patterns": [
-              "data-episode=[\"']([^\"']+)[\"']"
-            ],
-            "group": 1,
-            "optional": true,
-            "into": "ep_num"
-          },
-          {
-            "do": "if",
-            "cond": "empty:ep_num",
-            "then": [
-              { "do": "set", "name": "ep_num", "value": "1" }
-            ]
-          },
-          { "do": "log", "message": "24HD post_id={post_id} ep={ep_num} nonce={nonce}" },
-          {
-            "do": "try",
-            "steps": [
-              {
-                "do": "fetch",
-                "method": "POST",
-                "url": "https://api.24-hdc.com/get.php",
-                "form": {
-                  "action": "halim_ajax_player",
-                  "nonce": "{nonce}",
-                  "episode": "{ep_num}",
-                  "postid": "{post_id}",
-                  "server": "1",
-                  "lang": "Sound Track"
-                },
-                "headers": {
-                  "Referer": "{target_url}",
-                  "Origin": "https://www.24-hdc.com",
-                  "X-Requested-With": "XMLHttpRequest"
-                },
-                "into": "ajax_resp"
-              },
-              { "do": "log", "message": "24HD ajax_resp={ajax_resp}" },
-              {
-                "do": "regex",
-                "from": "ajax_resp",
-                "patterns": [
-                  "[?&]id=([^&\"'\\\\]+)",
-                  "https?:\\/\\/main\\.24playerhd\\.com\\/newplaylist\\/([^/\"'\\\\\\s]+)"
-                ],
-                "group": 1,
-                "optional": true,
-                "into": "stream_id"
-              },
-              {
-                "do": "if",
-                "cond": "not_empty:stream_id",
-                "then": [
-                  {
-                    "do": "return",
-                    "value": "https://main.24playerhd.com/newplaylist/{stream_id}/{stream_id}.m3u8"
-                  }
-                ]
-              },
-              {
-                "do": "regex",
-                "from": "ajax_resp",
-                "patterns": [
-                  "<iframe[^>]+src=[\"']([^\"']+)[\"']",
-                  "\"src\"\\s*:\\s*\"([^\"]+)\"",
-                  "(https?:\\/\\/[^\\s\"']+\\.(?:m3u8|mp4|mkv|webm)[^\\s\"']*)"
-                ],
-                "group": 1,
-                "optional": true,
-                "into": "iframe_or_url"
-              },
-              {
-                "do": "if",
-                "cond": "not_empty:iframe_or_url",
-                "then": [
-                  { "do": "replace", "from": "iframe_or_url", "find": "\\\\/", "replace": "/", "into": "iframe_or_url" },
-                  {
-                    "do": "if",
-                    "cond": "contains:iframe_or_url:id=",
-                    "then": [
-                      {
-                        "do": "regex",
-                        "from": "iframe_or_url",
-                        "patterns": ["[?&]id=([^&\"']+)"],
-                        "group": 1,
-                        "optional": true,
-                        "into": "nested_id"
-                      },
-                      {
-                        "do": "if",
-                        "cond": "not_empty:nested_id",
-                        "then": [
-                          {
-                            "do": "return",
-                            "value": "https://main.24playerhd.com/newplaylist/{nested_id}/{nested_id}.m3u8"
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  { "do": "return", "value": "{iframe_or_url}" }
-                ]
-              }
-            ]
-          },
-          {
-            "do": "regex",
-            "from": "detail_html",
-            "patterns": [
-              "(https?:\\/\\/[^\\s\"']+\\.(?:m3u8|mp4|mkv|webm)[^\\s\"']*)",
-              "<iframe[^>]+src=[\"']([^\"']+)[\"']"
-            ],
-            "group": 1,
-            "optional": true,
-            "into": "fallback_url"
-          },
-          { "do": "return", "value": "{fallback_url}" }
+            "do": "return",
+            "value": "https://moji.abcdxzy.xyz:8443/vod/{video_id}/video.mp4/playlist.m3u8"
+          }
         ]
       }
     }
