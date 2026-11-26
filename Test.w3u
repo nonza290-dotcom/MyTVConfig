@@ -1,0 +1,19 @@
+{
+  "name": "123hd",
+  "author": "",
+  "image": "",
+  "url": "",
+  "stations": [
+    {
+      "name": "Ginseng King (2026) ตำนานนักล่าภูผาอาถรรพ์",
+      "image": "https://www.123hdtv.com/wp-content/uploads/2026/02/Ginseng-King-2026-ตำนานนักล่าภูผาอาถรรพ์-300x450.png",
+      "url": "https://www.123hdtv.com/ginseng-king"
+    },
+    
+    {
+      "name": "Hellfire (2026)",
+      "image": "https://www.123hdtv.com/wp-content/uploads/2026/02/Hellfire-2026-300x450.png",
+      "url": "https://www.123hdtv.com/hellfire"
+    }
+  ]
+}
