@@ -1,19 +1,7 @@
-{
-  "name": "123hd",
-  "author": "",
-  "image": "",
-  "url": "",
-  "stations": [
-    {
-      "name": "Ginseng King (2026) ตำนานนักล่าภูผาอาถรรพ์",
-      "image": "https://www.123hdtv.com/wp-content/uploads/2026/02/Ginseng-King-2026-ตำนานนักล่าภูผาอาถรรพ์-300x450.png",
-      "url": "https://www.123hdtv.com/ginseng-king"
-    },
-    
-    {
-      "name": "Hellfire (2026)",
-      "image": "https://www.123hdtv.com/wp-content/uploads/2026/02/Hellfire-2026-300x450.png",
-      "url": "https://www.123hdtv.com/hellfire"
-    }
-  ]
-}
+#EXTM3U
+
+#EXTINF:-1 tvg-logo="https://www.24hd.today/wp-content/uploads/2026/11/Chiara-Ferragni-Front-Facing-2026.webp" group-title="หนังไทย",ตัวอย่างหนัง 1
+https://main.24playerhd.com/newplaylist/bb4d4fbcfdf70f18ead6add5/bb4d4fbcfdf70f18ead6add5.m3u8
+
+#EXTINF:-1 tvg-logo="https://www.24-hdc.com/wp-content/uploads/2026/11/Avengers-Endgame-Encore-2026-187x269.png" group-title="หนังฝรั่ง",ตัวอย่างหนัง 2
+https://main.24playerhd.com/newplaylist/6315e30f11c295e21532d551/6315e30f11c295e21532d551.m3u8
